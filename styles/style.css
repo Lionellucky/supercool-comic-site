@@ -67,18 +67,6 @@ table {
     font-style: normal;
 }
 
-table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-table, th, td {
-    border-collapse: collapse;
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-}
 
 .comic {
     display: block;
