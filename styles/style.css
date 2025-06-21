@@ -1,19 +1,22 @@
 body{
     background-color: #d8d1f5;
-    font-family: Arial, sans-serif;
     color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     font-size: 1.5em;
 }
 
 .header {
+    padding: 10px 20px;
+    text-align: left;
+    background-color: #6e07c2;
+}
+
+.header img {
+    width: 500px;      /* smaller */
+    height: auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 10%;
+    margin: 0;
 }
 
 .topnav {
@@ -58,15 +61,13 @@ table {
     margin-right: auto;
 }
 
-
-.title {
-    text-align: center;
-    color: rgb(147, 15, 223);
-    font-family: "Barriecito", system-ui;
-    font-weight: 400;
+table, th, td {
+    border-collapse: collapse;
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
     font-style: normal;
 }
-
 
 .comic {
     display: block;
@@ -79,5 +80,13 @@ p {
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 400;
+    font-style: normal;
+}
+
+.comic-title {
+    text-align: center;
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
     font-style: normal;
 }
