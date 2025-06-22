@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
 
     /* correct relative path: go up from styles/ into the root, then into img/ */
-    background-image: url('../img/background.png');
+    background-image: url('../img/background.webp');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -36,7 +36,7 @@ body{
 .header {
     padding: 10px 20px;
     text-align: left;
-    background-color: #6e07c2;
+    background-color: #FF3758;
 }
 
 .header img {
@@ -50,8 +50,7 @@ body{
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    background-color: #333;
-    overflow: hidden;
+    background-color: #333; 
     width: 100%;
 }
 
@@ -74,8 +73,8 @@ body{
 
 /* Add an active class to highlight the current page */
 .topnav a.active {
-    background-color: #6e07c2;
-    color: white;
+    background-color: #FF3758;
+    color: white;   
 }
 
 /* Hide the link that should open and close the topnav on small screens */
