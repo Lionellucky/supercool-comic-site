@@ -1,6 +1,33 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    /* correct relative path: go up from styles/ into the root, then into img/ */
+    background-image: url('../img/background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+    /* fallback solid color (only used if the image fails to load) */
+    background-color: #d8d1f5;
+
+    /* move all your other body styles in here, too */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5em;
+}
+
+/* Add a black background color to the top navigation bar */
+
 body{
     background-color: #d8d1f5;
-    color: #333;
+    color: #333;    
     display: flex;
     flex-direction: column;
     font-size: 1.5em;
@@ -90,3 +117,20 @@ p {
     font-weight: 600;
     font-style: normal;
 }
+
+.page-controls {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 2px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: auto;
+}
+
+.temp-button:hover {
+    background-color: #9035b4;      /* Darker gray on hover */
+}
+
