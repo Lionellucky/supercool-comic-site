@@ -31,31 +31,44 @@
             <i class="fa fa-bars"></i>
         </a>
     </div>
-    </div>
-    <div class="comic-title">
-        <h2>Title Of Comic</h2>
-    </div>
-    
-
-    <div class="comic">
-        <img src="./img/tetocomic.jpg" alt="Placeholder Image">
-    </div>
-    
-    <div class="comic-info">
-        <p>Comic description goes here. This is a placeholder text for the comic description. It can be replaced with actual content later.</p>
-        <p>Author: Placeholder Author</p>
-        <p>Date: Placeholder Date</p>
-    </div>
-
-    <div  class ="temp-button" style="display: flex; justify-content: center; align-items: center;text-align: center;">
+    <br>
+    <!-- Main content -->
+    <div class="container">
+        <div class="comic-title">
+            
+            <h2><img src="img/CatTime-4x.gif" alt="cattime"> Title Of Comic <img src="img/CatTime-4x.gif" alt="cattime"></h2>
+            
+        </div>
         
-        <button class="button" ><a href="page2"><img src="./img/pda.png" alt="Clickable Image" width= "150" height= "100" style= "margin-left= auto; margin-right= auto"></a></button>
+
+        <div class="comic" >
+            <img id="comicImage" src="img/firstcomic/In_Another_Lifetime_Page_1.png" alt="Placeholder Image">
+        </div>
+        
+        <div class="comic-info">
+            <p>Comic description goes here. This is a placeholder text for the comic description. It can be replaced with actual content later.</p>
+            <p>Author: Placeholder Author</p>
+            <p>Date: Placeholder Date</p>
+        </div>
+
+        <div class="temp-buttons">
+            <button class="page-controls" onclick="nextPage()"><p>&rarr;</p></button>
+            <button class="page-controls" onclick="prevPage()"><p>&larr;</p></button>
+            <button class="page-controls" onclick="firstPage()"><p>&#8606;</p></button>
+            <button class="page-controls" onclick="lastPage()"><p>&#8608;</p></button>
+        </div>
+        <br>    
     </div>
-  
+
     <div class="footer">
         <p>© 2023 Placeholder Name. All rights reserved.</p>
-        <p>Contact: <a href="mailto:#">test link</a>
+        <p>Contact: <a href="mailto:#">test link</a></p>
+
     </div>
-    <button class="button" >><a href="page2"><img src="./img/sybaupunch.jpg" alt="Clickable Image" width= "150" height= "100" style= "margin-left= auto; margin-right= auto"></a></button>
+    <!-- End of main content -->
+    <br>
+    <div class="sybaupunch">
+        <a href="https://youtu.be/l2J5dfOGRNc?si=MKQsUaZUc4-IazVa"><img src="./img/sybaupunch.jpg" alt="Sybau 💔"></a>
+    </div>
 </body>
 </html>
