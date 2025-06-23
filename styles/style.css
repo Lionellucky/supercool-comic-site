@@ -9,34 +9,47 @@ body {
 
     /* correct relative path: go up from styles/ into the root, then into img/ */
     background-image: url('../img/background.webp');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    animation: infinite;
+    
     background-size: cover;
 
     /* fallback solid color (only used if the image fails to load) */
     background-color: #d8d1f5;
 
     /* move all your other body styles in here, too */
-    color: #333;
     display: flex;
     flex-direction: column;
     font-size: 1.5em;
+
+    /* Add a scrolling parallax animation */
+    animation: scrollBackground 10s linear infinite;
+    
 }
+@keyframes scrollBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 100%;
+    }
+}
+
+
 
 /* Add a black background color to the top navigation bar */
 
 body{
-    background-color: #d8d1f5;
-    color: #333;    
+    color: #FFD504 ;   /* gold text color */
     display: flex;
     flex-direction: column;
     font-size: 1.5em;
+    cursor: url('img/houseta.png'),auto;
 }
 
 .header {
     padding: 10px 20px;
     text-align: left;
-    background-color: #FF3758;
+    background-color: #FF876D /* light red background color */;
 }
 
 .header img {
@@ -50,7 +63,7 @@ body{
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    background-color: #333; 
+    background-color: #ffffff; 
     width: 100%;
 }
 
@@ -58,7 +71,7 @@ body{
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #3C56C0 ;   /* blue text color */
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -67,14 +80,14 @@ body{
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+  background-color: #3C56C0 ; /* blue background color */
+  color: rgb(255, 255, 255);
 }
 
 /* Add an active class to highlight the current page */
 .topnav a.active {
-    background-color: #FF3758;
-    color: white;   
+    background-color: #FF876D;
+    color: #FFD504 ;   
 }
 
 /* Hide the link that should open and close the topnav on small screens */
@@ -82,23 +95,14 @@ body{
     display: none;
 }
 
-table {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-table, th, td {
-    border-collapse: collapse;
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-}
-
-.comic {
+.comic img{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 1000px;      /* smaller */
+    height: auto;
+    border: #000000 5px solid; /* blue border */
+    border-radius: 10px; /* rounded corners */
 }
 
 p {
@@ -118,9 +122,9 @@ p {
 }
 
 .page-controls {
-    background-color: #04AA6D; /* Green */
+    background-color: #FFD504 ; /* Green */
     border: none;
-    color: white;
+    color: #3C56C0  ;   /* blue text color */
     padding: 2px 30px;
     text-align: center;
     text-decoration: none;
@@ -129,7 +133,39 @@ p {
     margin: auto;
 }
 
+.page-controls:hover {
+    background-color: #3C56C0 ; /* Darker blue on hover */
+    color: #FFD504 ;   /* gold text color */
+}
+
 .temp-button:hover {
     background-color: #9035b4;      /* Darker gray on hover */
 }
 
+.sybaupunch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sybaupunch img {
+    width: 150px;      /* smaller */
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: #FF876D ; /* light red background color */
+    width: 1000px;
+    margin: 0 auto; /* centers it */
+    padding: 90px;
+    border-radius: 10px;
+    margin-top: 100px;
+    box-shadow: 0 8px 100px rgba(0, 0, 0, 0.8); /* soft drop shadow */
+}
