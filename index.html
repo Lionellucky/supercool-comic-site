@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
-    <script src="scripts/script.js"></script>
+    
     <title>test site</title>   
         
 </head>
@@ -21,12 +21,12 @@
     </header>
 
     <div class="topnav" id="myTopnav">
-        <a href="#home" class="active">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#projects">Projects</a>
-        <a href="#characters">Characters</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a href="home.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="characters.html">Characters</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
         <a href="javascript:void(0);" class="icon" onclick="topNavFunc()">
             <i class="fa fa-bars"></i>
         </a>
@@ -44,19 +44,22 @@
         <div class="comic" >
             <img id="comicImage" src="img/firstcomic/In_Another_Lifetime_Page_1.png" alt="Placeholder Image">
         </div>
+        <br>
         
+        <div class="temp-buttons">
+            <button class="page-controls" onclick="firstPage()"><p>&#8606;</p></button>
+            <button class="page-controls" onclick="prevPage()"><p>&larr;</p></button>
+            <button class="page-controls" onclick="nextPage()"><p>&rarr;</p></button>
+            <button class="page-controls" onclick="lastPage()"><p>&#8608;</p></button>
+        </div>
+
         <div class="comic-info">
             <p>Comic description goes here. This is a placeholder text for the comic description. It can be replaced with actual content later.</p>
             <p>Author: Placeholder Author</p>
             <p>Date: Placeholder Date</p>
         </div>
 
-        <div class="temp-buttons">
-            <button class="page-controls" onclick="nextPage()"><p>&rarr;</p></button>
-            <button class="page-controls" onclick="prevPage()"><p>&larr;</p></button>
-            <button class="page-controls" onclick="firstPage()"><p>&#8606;</p></button>
-            <button class="page-controls" onclick="lastPage()"><p>&#8608;</p></button>
-        </div>
+        
         <br>    
     </div>
 
@@ -70,5 +73,6 @@
     <div class="sybaupunch">
         <a href="https://youtu.be/l2J5dfOGRNc?si=MKQsUaZUc4-IazVa"><img src="./img/sybaupunch.jpg" alt="Sybau 💔"></a>
     </div>
+<script src="./scripts/script.js" defer></script>
 </body>
 </html>
