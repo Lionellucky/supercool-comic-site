@@ -1,5 +1,2 @@
-# supercool-comic-site
-// clueeeee
-<p>yo gng this is a markdown site</p>
-<br>
-<p>it's p much just html</p>
+# sevennoodle comic site
+## https://lionellucky.github.io/supercool-comic-site/
