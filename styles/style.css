@@ -4,10 +4,11 @@
     --gold: #FFD504; /* gold */
     --light-purple: #d8d1f5; /* fallback background color */
 
-
-    --light-blue: #A4C8FF; /* light blue */
-    --dark-red: #B22222; /* dark red */
-    --dark-purple: #4B0082; /* dark purple */
+    /* Dark Mode Colors */
+    --dark-bg: #1a1a1a;
+    --dark-surface: #2c2c2c;
+    --dark-text: #f0f0f0;
+    --dark-header: #222222;
 }
 
 body, html {
@@ -17,50 +18,30 @@ body, html {
 body {
     margin: 0;
     padding: 0;
-
-    /* correct relative path: go up from styles/ into the root, then into img/ */
     background-image: url('../img/background.webp');
     animation: infinite;
     background-size: cover;
-
-    /* fallback solid color (only used if the image fails to load) */
     background-color: var(--light-purple);
-
-    /* move all your other body styles in here, too */
     display: flex;
     flex-direction: column;
     font-size: clamp(0.1em, 1.5em, 2em);
-
-    /* Add a scrolling parallax animation */
     animation: scrollBackground 10s linear infinite;
-    
+    color: var(--gold) ; 
+    cursor: url(./img/cursor/gam1571.ani), auto;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added transitions */
 }
 @keyframes scrollBackground {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 100% 100%;
-    }
+    from { background-position: 0 0; }
+    to { background-position: 100% 100%; }
 }
 
-
-
-/* Add a black background color to the top navigation bar */
-
-body{
-    color: #FFD504 ;   /* gold text color */
+.header{
     display: flex;
-    flex-direction: column;
-    cursor: url(./img/cursor/gam1571.ani), auto; /* custom cursor (it dont work cuz the img size is too big)*/
-}
-
-.header {
-  display: flex;                /* make it flex */
-  align-items: center;          /* vertical‑center items */
-  justify-content: space-between; /* image on left, switch on right */
-  padding: 10px 20px;
-  background-color: var(--light-red);
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; 
+    background-color: var(--light-red);
+    transition: background-color 0.3s ease;
 }
 
 .header img {
@@ -76,26 +57,24 @@ body{
     font-weight: 600;
     background-color: #ffffff; 
     width: 100%;
+    transition: background-color 0.3s ease;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     display: block;
-    color: var(--blue) ;   /* blue text color */
+    color: var(--blue) ;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: clamp(10px, 17px, 2em);
-    }
+}
 
-/* Change the color of links on hover */
 .topnav a:hover {
-  background-color: var(--blue) ; /* blue background color */
+  background-color: var(--blue) ;
   color: rgb(255, 255, 255);
 }
 
-/* Add an active class to highlight the current page */
 .topnav a.active {
     background-color: var(--light-red);
     color: var(--gold);
@@ -105,12 +84,12 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    min-width: 200px;     /* smaller */
+    min-width: 200px;
     width: 100%;
     max-width: 1000px;
     height: auto;
-    border: #000000 5px solid; /* blue border */
-    border-radius: 10px; /* rounded corners */
+    border: #000000 5px solid;
+    border-radius: 10px;
 }
 
 p {
@@ -119,36 +98,37 @@ p {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    font-size: clamp(20px, 1em, 2em);
 }
 
 .comic-title h2 {
-    display: flex;              /* make the h2 a flex container */
-    justify-content: center;    /* center its children horizontally */
-    align-items: center;        /* center its children vertically */
-    gap: 0.5em;                 /* space between cat, text, cat */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
     font-size: 90px;
 }
 
-
 .page-controls {
-    background-color: var(--gold) ; /* gold */
+    background-color: var(--gold) ;
     border: none;
-    color: var(--blue) ;   /* blue text color */
-    padding: 2px 30px;
+    color: var(--blue) ;
+    padding: 20px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: auto;
     margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page-controls:hover {
-    background-color: var(--blue) ; /* Darker blue on hover */
-    color: var(--gold) ;   /* gold text color */
+    background-color: var(--blue) ;
+    color: var(--gold) ;
 }
 
 .sybaupunch {
@@ -158,10 +138,9 @@ p {
 }
 
 .sybaupunch img {
-    width: clamp(15px, 90px, 1000px);      /* smaller */
+    width: clamp(15px, 90px, 1000px);
     height: auto;
     display: block;
-
     margin-bottom: 50px;
 }
 
@@ -171,55 +150,64 @@ p {
     align-items: center;
     justify-content: center;
     height: auto;
-    background-color: var(--light-red) ; /* light red background color */
+    background-color: var(--light-red) ;
     width: clamp(200px, 100dvw, 1000px);
-    margin: 0 auto; /* centers it */
-    padding: 20px 40px 40px 40px; /* top, right, bottom, left */
-    box-sizing: border-box; /* ensures padding is included in width */
+    margin: 0 auto;
+    padding: 20px 40px 40px 40px;
+    box-sizing: border-box;
     border-radius: 10px;
     margin-top: 100px;
-    box-shadow: 0 8px 100px rgba(0, 0, 0, 0.8); /* soft drop shadow */
+    box-shadow: 0 8px 100px rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease;
 }
 
-.spin {
-    display:inline-block;
-    width:600px;
-    height:600px;
-    animation:spin 10s linear infinite;
-    transform-origin:center center;
-    margin:200px auto;
-    overflow:visible;
+/* --- Dark Mode Styles --- */
+
+body.dark-mode {
+    background-image: none; /* Or a different dark background image */
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
 }
 
-/* Add a spinning animation to the spin class in home */
-
-@keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
+body.dark-mode .header {
+    background-color: var(--dark-header);
 }
 
-/* Add a hover effect to the spin class */
-
-.welcome {
-    text-align: center;
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 2000;
-    font-style: normal;
-    font-size: 2.5em; /* larger font size */
+body.dark-mode .container {
+    background-color: var(--dark-surface);
+    box-shadow: 0 8px 100px rgba(255, 255, 255, 0.1);
 }
 
-
-li {
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+body.dark-mode .topnav {
+    background-color: #333;
 }
+
+body.dark-mode .topnav a {
+    color: var(--light-red);
+}
+
+body.dark-mode .topnav a:hover {
+    background-color: var(--light-red);
+    color: #fff;
+}
+
+body.dark-mode .topnav a.active {
+    background-color: var(--blue);
+    color: var(--gold);
+}
+
+body.dark-mode p {
+    color: var(--dark-text);
+}
+
+body.dark-mode .comic-title h2 {
+    color: var(--gold);
+}
+
+body.dark-mode .comic img {
+    border-color: #555;
+}
+
 
 @media (max-width: 600px) {
   .header {
@@ -263,7 +251,6 @@ li {
   }
 
   .page-controls {
-    padding: 5px 12px;
     font-size: 14px;
   }
 
@@ -271,337 +258,31 @@ li {
     font-size: clamp(1.2em, 2vw, 1.5em);
   }
   
-.cattime {
-    width: clamp(20px, 5vw, 100px); /* smaller cat image */
+  .cattime {
+    width: clamp(20px, 5vw, 100px);
     height: auto;
   }
 
-}
-@media (max-width: 600px) { 
-  /* 1) Center everything inside the body flex‐column */
   body {
     align-items: center;
-    text-align: center; /* centers text in the body */
+    text-align: center;
   }
 
-  /* 2) Make sure your main wrapper (.container) keeps its children centered */
   .container {
-    align-items: center;     /* centers its direct children horizontally */
-    justify-content: center; /* (optional) centers them vertically if you ever give it a fixed height */
+    align-items: center;
+    justify-content: center;
   }
 
-  /* 3) Force the title block to span 100% and text‐center the cats + text */
   .comic-title {
     width: 100%;
-    text-align: center;   /* fallback for any non‐flex browsers */
+    text-align: center;
     margin: 0 auto;
   }
 
-  /* your h2 is already display:flex + justify-content:center,
-     so you don’t strictly need to touch .comic-title h2 again here */
-
-  /* 4) Center your page‐buttons row */
   .temp-buttons {
     display: flex;
     justify-content: center;
-    gap: 8px;       /* optional spacing between buttons */
-    margin: 1em 0;
-  }
-  
-}
-body, html {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-
-    /* correct relative path: go up from styles/ into the root, then into img/ */
-    background-image: url('../img/background.webp');
-    animation: infinite;
-    
-    background-size: cover;
-
-    /* fallback solid color (only used if the image fails to load) */
-    background-color: #d8d1f5;
-
-    /* move all your other body styles in here, too */
-    display: flex;
-    flex-direction: column;
-    font-size: 1.5em;
-
-    /* Add a scrolling parallax animation */
-    animation: scrollBackground 10s linear infinite;
-    
-}
-@keyframes scrollBackground {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 0 100%;
-    }
-}
-
-
-
-/* Add a black background color to the top navigation bar */
-
-body{
-    color: #FFD504 ;   /* gold text color */
-    display: flex;
-    flex-direction: column;
-    font-size: 1.5em;
-    
-}
-
-.header {
-    padding: 10px 20px;
-    text-align: left;
-    background-color: #FF876D /* light red background color */;
-    
-}
-
-.header img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    display: block;
-    margin: 0;
-}
-
-.topnav {
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    background-color: #ffffff; 
-    width: 100%;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-    float: left;
-    display: block;
-    color: #3C56C0 ;   /* blue text color */
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    }
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #3C56C0 ; /* blue background color */
-  color: rgb(255, 255, 255);
-}
-
-/* Add an active class to highlight the current page */
-.topnav a.active {
-    background-color: #FF876D;
-    color: #FFD504 ;   
-}
-
-.comic img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 200px;     /* smaller */
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
-    border: #000000 5px solid; /* blue border */
-    border-radius: 10px; /* rounded corners */
-}
-
-p {
-    text-align: center;
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.comic-title h2 {
-    display: flex;              /* make the h2 a flex container */
-    justify-content: center;    /* center its children horizontally */
-    align-items: center;        /* center its children vertically */
-    gap: 0.5em;                 /* space between cat, text, cat */
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-size: 90px;
-}
-
-
-.page-controls {
-    background-color: #FFD504 ; /* Green */
-    border: none;
-    color: #3C56C0  ;   /* blue text color */
-    padding: 2px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: auto;
-}
-
-.page-controls:hover {
-    background-color: #3C56C0 ; /* Darker blue on hover */
-    color: #FFD504 ;   /* gold text color */
-}
-
-.temp-button:hover {
-    background-color: #9035b4;      /* Darker gray on hover */
-}
-
-.sybaupunch {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.sybaupunch img {
-    width: 150px;      /* smaller */
-    height: auto;
-    display: block;
-    margin: 0;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    background-color: #FF876D ; /* light red background color */
-    width: 1000px;
-    margin: 0 auto; /* centers it */
-    padding: 20px 40px 40px 40px; /* top, right, bottom, left */
-    box-sizing: border-box; /* ensures padding is included in width */
-    border-radius: 10px;
-    margin-top: 100px;
-    box-shadow: 0 8px 100px rgba(0, 0, 0, 0.8); /* soft drop shadow */
-}
-
-.spin {
-    display:inline-block;
-    width:600px;
-    height:600px;
-    animation:spin 10s linear infinite;
-    transform-origin:center center;
-    margin:200px auto;
-    overflow:visible;
-}
-
-@keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
-}
-
-/* Add a hover effect to the spin class */
-
-
-.welcome {
-    text-align: center;
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 2000;
-    font-style: normal;
-    font-size: 2.5em; /* larger font size */
-}
-
-
-li {
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
-@media (max-width: 600px) {
-  .header {
-    padding: 10px;
-    text-align: center;
-  }
-
-  .header img {
-    max-width: 80%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .topnav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  .topnav a {
-    float: none;
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: 16px;
-    border-top: 1px solid #ccc;
-  }
-
-  .container {
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top: 30px;
-    box-sizing: border-box;
-  }
-
-  .comic img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .page-controls {
-    padding: 5px 12px;
-    font-size: 14px;
-  }
-
-  .comic-title h2 {
-    font-size: 1.2em;
-  }
-  
-}
-@media (max-width: 600px) { 
-  /* 1) Center everything inside the body flex‐column */
-  body {
-    align-items: center;
-  }
-
-  /* 2) Make sure your main wrapper (.container) keeps its children centered */
-  .container {
-    align-items: center;     /* centers its direct children horizontally */
-    justify-content: center; /* (optional) centers them vertically if you ever give it a fixed height */
-  }
-
-  /* 3) Force the title block to span 100% and text‐center the cats + text */
-  .comic-title {
-    width: 100%;
-    text-align: center;   /* fallback for any non‐flex browsers */
-    margin: 0 auto;
-  }
-
-  /* your h2 is already display:flex + justify-content:center,
-     so you don’t strictly need to touch .comic-title h2 again here */
-
-  /* 4) Center your page‐buttons row */
-  .temp-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 8px;       /* optional spacing between buttons */
+    gap: 8px;
     margin: 1em 0;
   }
 }
