@@ -103,7 +103,7 @@
   background-size: cover; 
   background-position: center;
   background-repeat: no-repeat;
-  /* it dont work :( */
+  /* it dont work (get an actual cover):( */
 }
 
 .bbplayer div.playerWindow {
@@ -119,3 +119,4 @@ body.dark-mode .bbplayer {
     color: var(--light-red);
     box-shadow: 0 -4px 20px rgba(255, 255, 255, 0.1);
 }
+
