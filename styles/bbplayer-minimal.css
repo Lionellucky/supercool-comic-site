@@ -1,10 +1,17 @@
-:root {
-    --blue: #3C56C0; /* blue */
-    --light-red: #FF876D; /* light red */
-    --gold: #FFD504; /* gold */
-    --light-purple: #d8d1f5; /* fallback background color */
-}
+/*:root {
+    --blue: #3C56C0; /* blue 
+    --light-red: #FF876D; /* light red 
+    --gold: #FFD504; /* gold 
+    --light-purple: #d8d1f5;  fallback background color 
 
+    /* Dark Mode Colors 
+    --dark-bg: #1a1a1a;
+    --dark-surface: #ee1a1a;
+    --dark-text: #f0f0f0;
+    --dark-header: #ce2222;
+}
+/* unused because the root variables are defined in style.css
+ */
 
 .bbplayer {
   margin: 0;
@@ -25,7 +32,7 @@
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
   font-family: "Playpen Sans", cursive;
   font-size: clamp(12px, 2vw, 14px);
-
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .bb-play {
@@ -106,3 +113,9 @@
   text-align: right;
 }
 
+/* --- Dark Mode Styles for Music Player --- */
+body.dark-mode .bbplayer {
+    background-color: var(--dark-header);
+    color: var(--light-red);
+    box-shadow: 0 -4px 20px rgba(255, 255, 255, 0.1);
+}
