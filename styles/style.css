@@ -5,10 +5,11 @@
     --light-purple: #d8d1f5; /* fallback background color */
 
     /* Dark Mode Colors */
-    --dark-bg: #1a1a1a;
-    --dark-surface: #2c2c2c;
-    --dark-text: #f0f0f0;
-    --dark-header: #222222;
+    --dark-bg: #000000;
+    --dark-surface: #2D2D3F;
+    --dark-text: #FF6C7B;
+    --dark-header: #2D2D3F;
+    --dark-title: #FF6C7B;
 }
 
 body, html {
@@ -33,6 +34,11 @@ body {
 @keyframes scrollBackground {
     from { background-position: 0 0; }
     to { background-position: 100% 100%; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .header{
@@ -161,16 +167,66 @@ p {
     transition: background-color 0.3s ease;
 }
 
+h1 {
+    text-align: center;
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(1.5em, 2vw, 3em);
+}
+
+li {
+    list-style: circle;
+    margin: 0;
+    padding: 0;
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+}
+
+.welcome-image img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: clamp(20px, 40dvw, 1000px);
+    height: auto;
+    border-radius: 10px;
+}
+
+details {
+  padding: 10px;
+  background-color: var(--gold);
+  border-radius: 5px;
+  font-family: Playpen Sans, cursive;
+  margin-bottom: 1em;
+  color: var(--blue);
+}
+
+/* extra styles */
+details > *:not(summary) {margin: 0.75em 0 0 0;}
+pre {
+  color: var(--light-red); 
+  padding: 10px;
+  background: white;  
+  border-radius: 5px;
+  font-family: Playpen Sans, cursive;
+  font-size: clamp(0.8em, 0.5vw, 1.2em);
+  white-space: pre-wrap;
+}
+
 /* --- Dark Mode Styles --- */
 
-body.dark-mode {
-    background-image: none; /* Or a different dark background image */
-    background-color: var(--dark-bg);
+body.dark-mode{
+    background-image: url('../img/dark-background.webp'); /* Or a different dark background image */
     color: var(--dark-text);
 }
 
 body.dark-mode .header {
     background-color: var(--dark-header);
+}
+
+body.dark-mode .h1 {
+    color: var(--dark-title);
 }
 
 body.dark-mode .container {
@@ -179,21 +235,31 @@ body.dark-mode .container {
 }
 
 body.dark-mode .topnav {
-    background-color: #333;
+    background-color: var(--dark-text);
 }
 
 body.dark-mode .topnav a {
-    color: var(--light-red);
+    color: #fff;
 }
 
 body.dark-mode .topnav a:hover {
-    background-color: var(--light-red);
+    background-color: var(--dark-surface);
     color: #fff;
 }
 
 body.dark-mode .topnav a.active {
-    background-color: var(--blue);
-    color: var(--gold);
+    background-color: var(--dark-header);
+    color: var(--dark-title);
+}
+
+body.dark-mode details {
+    background-color: var(--dark-text);
+    color: var(--dark-surface);
+}
+
+body.dark-mode pre {
+    color: white;
+    background-color: var(--dark-header);
 }
 
 body.dark-mode p {
@@ -201,11 +267,25 @@ body.dark-mode p {
 }
 
 body.dark-mode .comic-title h2 {
-    color: var(--gold);
+    color: var(--dark-title);
 }
 
 body.dark-mode .comic img {
     border-color: #555;
+}
+
+body.dark-mode .page-controls {
+    background-color: var(--dark-text);
+    color: var(--dark-surface);
+}
+
+body.dark-mode .page-controls:hover {
+    background-color: #fff;
+    color: var(--dark-text);
+}
+
+body.dark-mode .comic-title {
+    color: var(--dark-title);
 }
 
 
