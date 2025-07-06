@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/pda.jpg" type="image/jpg">
+    <!-- currently uses style.css -->
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/lightswitch.css">
+    <link rel="stylesheet" href="./styles/bbplayer-minimal.css"/>
+
+    <title>7noodle's Studio</title>
+
+</head>
+
+<body>
+    <header class="header">
+    <img src="./img/7Noodle_Studio_Title.webp" alt="Placeholder Image">
+    <!-- Cleaned up the switch: removed duplicate ID -->
+    <label id="lightSwitch" aria-checked="false" role="switch" class="switch">
+        <input type="checkbox" />
+        <span class="slider">
+            <span class="slider-inner"></span>
+        </span>
+    </label>
+    </header>
+
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" onmousedown="mouseclick.play()">Home</a>
+        <a href="gallery.html" onmousedown="mouseclick.play()">Gallery</a>
+        <a href="projects.html"  onmousedown="mouseclick.play()">Projects</a>
+        <a href="characters.html" class="active" onmousedown="mouseclick.play()">Characters</a>
+        <a href="lore.html" onmousedown="mouseclick.play()">Lore</a>
+        <a href="contact.html" onmousedown="mouseclick.play()">Contact</a>
+        <a href="about.html" onmousedown="mouseclick.play()">About</a>
+        <a href="extras.html" onmousedown="mouseclick.play()">Extras</a>
+    </div>
+    <br>
+    <!-- Main content -->
+
+    
+    <div class="container">
+        <h1>Characters</h1>
+        <div class="charTable">
+            <!-- New structure for each character entry -->
+            <div class="character-entry">
+                <div class="character-image">
+                    <img src="./img/gallery/sevenhead.png" alt="Seven">
+                </div>
+                <div class="character-info">
+                    <h2>Seven</h2>
+                    <p>A clone of a scientist (which he refers as his dad). Created from organic cells and ZERO cells.</p>
+                    <p>While he looks somewhat mature, he has the mental capacity of a 7 year old. He can also semi-shapeshift, as he can only change gender, color palette, amount of limbs he has and etc. While he can turn into a couch but due to his limitations, he'll be a very fleshy one (ref to that human skin couch from gravity falls).</p>
+                    <p><strike>He's also blind which why he wears that goggles at all times (usually).</strike></p>
+                </div>
+            </div>
+            <div class="character-entry">
+                <div class="character-image">
+                    <img src="https://placehold.co/200x200/FF6C7B/2D2D3F?text=Another+Char" alt="Another Character">
+                </div>
+                <div class="character-info">
+                    <h2>Shawn Eden</h2>
+                    <p>A father, a priest, a human, he fell from grace from a tragedy that caused him to sin.</p>
+                    <p>After death, he became a demon of the Wrath's hell.</p>
+                    <p>Years later, Shawn, now on earth, tries to seek redemption or in this case.. survive without causing sin. Later, he met a kid which named "Sin" (which is another of my character). While meeting her, she doesn't seem to show fear towards demons and just follows him around.</p>
+                    <p>She reminded him of his daughter in back his human life however, and decided to take care of her as a father figure from the unforgiving world. (which where they go on some wacky adventures together yaaay!!)</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <br>    
+    </div>
+    <!-- End of main content -->
+    <div class="footer">
+        <p>© 2023 Placeholder Name. All rights reserved.</p>
+        <p>Contact: <a href="mailto:#">test link</a></p>
+
+    </div>
+    
+    
+    
+    <br>
+    <div class="sybaupunch">
+        <a href="https://youtu.be/l2J5dfOGRNc?si=MKQsUaZUc4-IazVa"><img src="./img/sybaupunch.jpg" alt="Sybau 💔"></a>
+    </div>
+    <!-- BBPlayer, a custom music player I forked from another repo, say some shit if you found a bug and send it to me! -->
+<div class="bbplayer">
+      <span class="bb-rewind"></span>
+      <span class="bb-play"></span>
+      <span class="bb-forward"></span>
+      <div class="playerWindow">
+        <div class="bb-track-display">
+          <span class="bb-trackTime">--:--</span>
+          <span class="bb-trackTitle">&nbsp;</span>
+          <span class="bb-trackLength">--:--</span>
+        </div>
+        <div class="bb-album-display">
+          <span class="bb-artist">Made from my album</span> -
+          <span class="bb-album">my shitty ass playlist</span>
+        </div>
+      </div>
+      
+      <span class="bb-albumCover">&nbsp;</span>
+    
+      <audio loop>
+        <source
+           src="media/Snake Eater Neuro ver..mp3" type="audio/mpeg"
+           data-album="Neuro-sama"
+           data-artist="Neuro"
+           data-image="media/Blue Browne small.jpg"/>
+        <source
+           src="media/Snake Eater Evil ver..mp3" type="audio/mpeg"
+           data-album="AAA"
+           data-artist="AAA"
+           data-image="../img/pda.jpg"/>
+        <source
+           src="media/dj_toenail_ambulance_song_XQC_extended.mp3" type="audio/mpeg"
+           data-album="AAA"
+           data-artist="AAA"
+           data-image="../img/pda.jpg"/>
+        <source
+           src="media/anemoia.mp3" type="audio/mpeg"
+           data-album="AAA"
+           data-artist="AAA"
+           data-image="../img/pda.jpg"/>
+        <source
+           src="media/Turbo Turabi – Wine Me, Dine Me (Lyrics).mp3" type="audio/mpeg"
+           data-album="AAA"
+           data-artist="AAA"
+           data-image="../img/pda.jpg"/>
+        <source
+           src="media/Yukinose - Black Lover (Official Audio).mp3" type="audio/mpeg"
+           data-album="AAA"
+           data-artist="AAA"
+           data-image="../img/pda.jpg"/>
+        HTML5 Audio Not Available
+      </audio>
+    </div>
+    <script src="./scripts/bbplayer.js"></script>
+    <script src="./scripts/script.js"></script>
+
+</body>
+</html>
