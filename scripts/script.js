@@ -94,4 +94,42 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apply the theme when the page loads
     applyTheme();
 
-});
+    // Gallery Modal Functionality - MOVED INSIDE DOMContentLoaded
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalCaption = document.getElementById("caption");
+    const closeButton = document.getElementsByClassName("close-button")[0];
+    const galleryItems = document.querySelectorAll(".gallery-item img"); // Select the images within gallery items
+
+    // Loop through all gallery images and add click listeners
+    galleryItems.forEach(img => {
+        img.addEventListener('click', function() {
+            modal.style.display = "flex"; // Use flex to center content
+            modalImage.src = this.getAttribute('data-full-src') || this.src; // Use full-src or fallback to src
+            modalCaption.innerHTML = this.alt || this.nextElementSibling?.textContent || ""; // Use alt or caption text
+        });
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    closeButton.addEventListener('click', function() {
+        modal.style.display = "none";
+        modalImage.src = ""; // Clear the image source when closing
+    });
+
+    // When the user clicks anywhere outside of the image, close the modal
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            modalImage.src = ""; // Clear the image source when closing
+        }
+    });
+
+    // Optional: Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape" && modal.style.display === "flex") {
+            modal.style.display = "none";
+            modalImage.src = ""; // Clear the image source when closing
+        }
+    });
+
+}); // End of DOMContentLoaded
