@@ -121,6 +121,7 @@ p {
     font-optical-sizing: auto;
     font-weight: 600;
     font-size: 90px;
+    color: var(--gold);
 }
 
 .charTable { 
@@ -156,8 +157,9 @@ p {
 .character-info {
   display: flex;
   flex-direction: column; /* Stacks h2 and p vertically */
-  text-align: left; /* Aligns text within this block to the left */
+  text-align: justify; 
   flex-grow: 1; /* Allows this block to grow and take available space */
+  text-justify: inter-word;
   min-width: 200px; /* Ensure a minimum width for the text block */
 }
 
@@ -174,7 +176,9 @@ p {
   margin-top: 0; /* Remove default top margin */
     color: var(--blue);
     font-weight: 600;
-  font-size: clamp(0.5em, 1.1vw, 1.2em); /* Responsive font size */
+      text-justify: inter-word;
+        text-align: justify; /* Aligns text within this block justifies it */
+  font-size: clamp(0.3em, 0.8dvw, 1.2em); /* Responsive font size */
 }
 
 .page-controls {
@@ -196,6 +200,69 @@ p {
     color: var(--gold) ;
 }
 
+/* New Styles for Characters Page (matching the image) */
+.character-series {
+    margin-bottom: 40px; /* Space between different series sections */
+    text-align: left; /* Align series title to the left */
+    max-width: 800px; /* Match container width for centering */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.series-title {
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(1.2em, 2vw, 2em);
+    color: var(--gold); /* Color from the image */
+    margin-bottom: 20px;
+    padding-left: 10px; /* Indent slightly for alignment */
+}
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid for thumbnails */
+    gap: 15px; /* Space between thumbnails */
+    padding: 10px;
+    background-color: var(--light-purple); /* Background for the grid section */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.character-thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 100%; /* Creates a square aspect ratio for the container */
+    position: relative;
+    overflow: hidden; /* Hide anything outside the rounded corners */
+    border-radius: 10px; /* Rounded corners for the thumbnail container */
+    background-color: #fff; /* White background for thumbnails */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.character-thumbnail:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.character-thumbnail img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures the entire image is visible, scales down if needed */
+    border-radius: 10px; /* Apply border-radius to the image itself */
+    border: 2px solid var(--blue); /* Blue border around the images */
+    padding: 5px; /* Padding inside the border */
+    box-sizing: border-box; /* Include padding in the image size */
+}
+
+
 /* Add these styles to your existing style.css file */
 
 .gallery-grid {
@@ -208,7 +275,7 @@ p {
 }
 
 .gallery-item {
-    background-color: var(--dark-surface); /* Matches your dark mode surface color */
+    background-color: var(--gold); /* Matches your dark mode surface color */
     border-radius: 10px;
     overflow: hidden; /* Ensures image corners are rounded with the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -227,17 +294,10 @@ p {
 
 .gallery-item img {
     width: 100%; /* Image takes full width of its container */
-    height: 200px; /* Fixed height for consistent image size */
+    height: 300px; /* Fixed height for consistent image size */
     object-fit: cover; /* Ensures images cover the area without distortion */
-    border-bottom: 3px solid var(--light-red); /* Separator line */
 }
 
-.image-caption {
-    padding: 15px;
-    color: var(--dark-text); /* Matches your dark mode text color */
-    font-size: clamp(0.8em, 1.2vw, 1em);
-    margin: 0; /* Remove default paragraph margins */
-}
 
 /* Modal (Lightbox) Styles */
 .modal {
@@ -263,16 +323,23 @@ p {
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     animation-name: zoom;
-    animation-duration: 0.6s;
+    animation-duration: 0.3s; /* Shorter animation duration */
 }
 
 .modal-caption {
-    margin-top: 10px;
+    position: absolute; /* Position relative to the modal container */
+    bottom: 5px; /* 20px from the bottom */
+    left: 50%; /* Start from the middle horizontally */
+    transform: translateX(-50%); /* Pull back by half its width to center */
+    width: 100%; /* Take full width of the modal for centering purposes */
+    max-width: 80%; /* Limit the maximum width for readability */
     color: #f1f1f1;
     font-size: 1.2em;
     text-align: center;
-    max-width: 80%;
-    padding: 10px 0;
+    padding: 10px 0; /* Add vertical padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin-top: 10px; /* Added margin-top */
+    font-family: "Playpen Sans", cursive;
 }
 
 /* Close Button */
@@ -314,10 +381,6 @@ body.dark-mode .gallery-item {
 
 body.dark-mode .gallery-item img {
     border-bottom-color: var(--dark-text);
-}
-
-body.dark-mode .image-caption {
-    color: var(--dark-text);
 }
 
 /* Responsive adjustments for smaller screens */
@@ -606,4 +669,10 @@ body.dark-mode .comic-title {
     min-width: 0; /* Allow content to shrink below its content size if necessary */
     align-items: center;
   }
+}
+
+.gallery-item img {
+    width: 100%; /* Image takes full width of its container */
+    height: 400px; /* Fixed height for consistent image size */
+    object-fit: cover; /* Ensures images cover the area without distortion */
 }
