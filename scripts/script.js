@@ -1,62 +1,126 @@
 // Wait for the entire HTML document to be loaded and parsed
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Comic Data Definition ---
+    // Define all your comic data in a single object, keyed by a unique ID
+    const comicData = {
+        'comic1': {
+            title: 'In Another Lifetime',
+            description: 'This is the first comic in the series, exploring themes of time and destiny. It features a unique art style and a compelling narrative.',
+            pages: [
+                'img/comics/In_Another_Lifetime_Page_1.png',
+                'img/comics/In_Another_Lifetime_Page_2.png',
+                'img/comics/In_Another_Lifetime_Page_3.png',
+                'img/comics/In_Another_Lifetime_Page_4.png',
+                'img/comics/In_Another_Lifetime_Page_5.png',
+                'img/comics/In_Another_Lifetime_Page_6.png',
+                // Add more pages for Comic 1 here
+            ]
+        },
+        'comic2': {
+            title: 'Naming',
+            description: 'Join Pixel Cat on an epic journey through a retro-inspired world, encountering strange creatures and solving ancient mysteries.',
+            pages: [
+                'img/comics/Naming_1.png',
+                'img/comics/Naming_2.png',
+            ]
+        },
+        // Add more comics as needed
+        'comic3': {
+            title: '',
+            description: 'A sci-fi saga about a team of unlikely heroes defending the galaxy from an interdimensional threat. Full of action and humor!',
+            pages: [
+                'img/comics/Third_Comic_Page_1.png', // Placeholder for Comic 3 pages
+                'img/comics/Third_Comic_Page_2.png',
+            ]
+        }
+    };
+
     // --- Comic Page Navigation ---
     const comicImage = document.getElementById('comicImage');
+    const comicTitleElement = document.getElementById('comicTitle'); // Element to display comic title
+    const comicDescriptionElement = document.getElementById('comicDescription'); // Element to display comic description
+
     // Check if the comic image element exists on the page before running comic logic
     if (comicImage) {
-        const pages = [
-            'img/firstcomic/In_Another_Lifetime_Page_1.png',
-            'img/firstcomic/In_Another_Lifetime_Page_2.png',
-            'img/firstcomic/In_Another_Lifetime_Page_3.png',
-            'img/firstcomic/In_Another_Lifetime_Page_4.png',
-            'img/firstcomic/In_Another_Lifetime_Page_5.png',
-            'img/firstcomic/In_Another_Lifetime_Page_6.png',
-            // add more as needed
-        ];
-
+        let currentComicId = 'comic1'; // Default comic ID
+        let currentComic = comicData[currentComicId]; // Default comic data
         let currentPage = 0;
 
-        function updateImage() {
-            comicImage.src = pages[currentPage];
+        // Get the comic ID from the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const requestedComicId = urlParams.get('comic'); // 'comic' is the parameter name
+
+        if (requestedComicId && comicData[requestedComicId]) {
+            currentComicId = requestedComicId;
+            currentComic = comicData[currentComicId];
+        } else if (requestedComicId) {
+            console.warn(`Comic ID "${requestedComicId}" not found. Loading default comic.`);
+            // If a comic ID was requested but not found, stick to the default.
+            // You might want to redirect to an error page or a list of comics here.
+        }
+
+        function updateComicDisplay() {
+            if (currentComic && currentComic.pages.length > 0) {
+                comicImage.src = currentComic.pages[currentPage];
+                if (comicTitleElement) {
+                    comicTitleElement.textContent = currentComic.title;
+                }
+                if (comicDescriptionElement) {
+                    comicDescriptionElement.textContent = currentComic.description;
+                }
+            } else {
+                console.warn("No comic data or pages defined for the current comic.");
+                comicImage.src = "https://placehold.co/600x400/CCCCCC/000000?text=Comic+Not+Found"; // Placeholder
+                if (comicTitleElement) {
+                    comicTitleElement.textContent = "Comic Not Found";
+                }
+                if (comicDescriptionElement) {
+                    comicDescriptionElement.textContent = "The requested comic could not be loaded.";
+                }
+            }
         }
 
         // Make functions globally accessible for the inline onclick attributes
         window.nextPage = function () {
-            if (currentPage < pages.length - 1) {
+            if (currentComic && currentPage < currentComic.pages.length - 1) {
                 currentPage++;
-                updateImage();
+                updateComicDisplay();
             }
         };
 
         window.prevPage = function () {
-            if (currentPage > 0) {
+            if (currentComic && currentPage > 0) {
                 currentPage--;
-                updateImage();
+                updateComicDisplay();
             }
         };
 
         window.firstPage = function () {
-            currentPage = 0;
-            updateImage();
+            if (currentComic) {
+                currentPage = 0;
+                updateComicDisplay();
+            }
         };
 
         window.lastPage = function () {
-            currentPage = pages.length - 1;
-            updateImage();
+            if (currentComic) {
+                currentPage = currentComic.pages.length - 1;
+                updateComicDisplay();
+            }
         };
+
+        // Initialize the comic display on page load
+        updateComicDisplay();
     }
 
     // --- Click Sound Effect ---
     const mouseclick = new Audio("./sounds/click.mp3");
     mouseclick.volume = 1;
     mouseclick.preload = "auto";
-    
-    // You can attach the click sound to specific elements instead of the whole body
-    // For example, to all buttons and links:
+
     document.querySelectorAll('button, a').forEach(element => {
         element.addEventListener('mousedown', () => {
-            // We clone the audio node to allow for rapid, overlapping clicks
             const clickSound = mouseclick.cloneNode();
             clickSound.play().catch(e => console.error("Failed to play sound:", e));
         });
@@ -67,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightSwitch = document.getElementById('lightSwitch');
     const themeCheckbox = lightSwitch.querySelector('input[type="checkbox"]');
 
-    // Function to apply the saved theme on page load
     function applyTheme() {
         const isDarkMode = localStorage.getItem('darkMode') === 'true';
         themeCheckbox.checked = isDarkMode;
@@ -78,12 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Add event listener to the checkbox inside the label
     themeCheckbox.addEventListener('change', () => {
-        // Toggle the .dark-mode class on the body
         document.body.classList.toggle('dark-mode');
-        
-        // Save the user's preference to localStorage
         if (document.body.classList.contains('dark-mode')) {
             localStorage.setItem('darkMode', 'true');
         } else {
@@ -91,44 +150,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Apply the theme when the page loads
     applyTheme();
 
-    // Gallery Modal Functionality - MOVED INSIDE DOMContentLoaded
+    // Gallery Modal Functionality
     const modal = document.getElementById("imageModal");
     const modalImage = document.getElementById("modalImage");
     const modalCaption = document.getElementById("caption");
     const closeButton = document.getElementsByClassName("close-button")[0];
-    const galleryItems = document.querySelectorAll(".gallery-item img"); // Select the images within gallery items
+    const galleryItems = document.querySelectorAll(".gallery-item img");
 
-    // Loop through all gallery images and add click listeners
     galleryItems.forEach(img => {
         img.addEventListener('click', function() {
-            modal.style.display = "flex"; // Use flex to center content
-            modalImage.src = this.getAttribute('data-full-src') || this.src; // Use full-src or fallback to src
-            modalCaption.innerHTML = this.alt || this.nextElementSibling?.textContent || ""; // Use alt or caption text
+            modal.style.display = "flex";
+            modalImage.src = this.getAttribute('data-full-src') || this.src;
+            modalCaption.innerHTML = this.alt || this.nextElementSibling?.textContent || "";
         });
     });
 
-    // When the user clicks on <span> (x), close the modal
     closeButton.addEventListener('click', function() {
         modal.style.display = "none";
-        modalImage.src = ""; // Clear the image source when closing
+        modalImage.src = "";
     });
 
-    // When the user clicks anywhere outside of the image, close the modal
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
-            modalImage.src = ""; // Clear the image source when closing
+            modalImage.src = "";
         }
     });
 
-    // Optional: Close modal with Escape key
     document.addEventListener('keydown', function(event) {
         if (event.key === "Escape" && modal.style.display === "flex") {
             modal.style.display = "none";
-            modalImage.src = ""; // Clear the image source when closing
+            modalImage.src = "";
         }
     });
 
