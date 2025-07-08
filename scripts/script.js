@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'comic2': {
             title: 'Naming',
-            description: 'Join Pixel Cat on an epic journey through a retro-inspired world, encountering strange creatures and solving ancient mysteries.',
+            description: '',
             pages: [
                 'img/comics/Naming_1.png',
                 'img/comics/Naming_2.png',
@@ -27,13 +27,33 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // Add more comics as needed
         'comic3': {
-            title: '',
-            description: 'A sci-fi saga about a team of unlikely heroes defending the galaxy from an interdimensional threat. Full of action and humor!',
+            title: 'Saiki_K_Moment',
+            description: '',
             pages: [
-                'img/comics/Third_Comic_Page_1.png', // Placeholder for Comic 3 pages
-                'img/comics/Third_Comic_Page_2.png',
+                'img/comics/Saiki_K_Moment.png',
             ]
-        }
+        },
+        'comic4': {
+            title: 'The Ways That You Talk To Me...',
+            description: '',
+            pages: [
+                'img/comics/THE_WAYS_THAT_YOU_TALK_TO_ME.png',
+            ]
+        },
+        'comic5': {
+            title: 'This is canon btw',
+            description: '',
+            pages: [
+                'img/comics/img/comics/This_is_canon_btw.png',
+            ]
+        },
+        'comic6': {
+            title: 'Saiki_K_Moment',
+            description: '',
+            pages: [
+                'img/comics/Saiki_K_Moment.png', // Placeholder for Comic pages
+            ]
+        },
     };
 
     // --- Comic Page Navigation ---
