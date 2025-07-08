@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: 'This is canon btw',
             description: '',
             pages: [
-                'img/comics/img/comics/This_is_canon_btw.png',
+                'img/comics/This_is_canon_btw.png',
             ]
         },
         'comic6': {
