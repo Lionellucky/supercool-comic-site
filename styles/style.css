@@ -112,92 +112,19 @@ p {
     font-size: clamp(20px, 1em, 2em);
 }
 
-.comic-title h2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5em;
+.page-main-title { /* Changed h1 to page-main-title for specific styling */
+    text-align: center;
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    font-size: 90px;
-    color: var(--gold);
+    font-size: clamp(1.5em, 2vw, 3em);
+    color: var(--gold); /* Color from the image */
+    margin-bottom: 30px;
 }
 
 .charTable { 
-  text-align: center; /* Center the character entries within the table */
+  text-align: center; /* Center the entire character section */
   width: 100%; /* Ensure it takes full width */
-}
-
-/* New Flexbox styles for character layout */
-.character-entry {
-  display: flex; /* Makes children (image and info) align horizontally */
-  align-items: center; /* Vertically centers items in the row */
-  gap: 20px; /* Space between the image and the text block */
-  margin: 20px auto; /* Add vertical margin and center horizontally */
-  padding: 15px; /* Add some padding around each entry */
-  background-color: var(--gold); /* Example background for each entry */
-  border-radius: 10px; /* Rounded corners for the entry box */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  /* Removed flex-wrap here to prevent wrapping and keep image left */
-  justify-content: center; /* Center items when they wrap */
-  max-width: 800px; /* Limit the max width of each character entry */
-}
-
-
-
-.character-image img {
-  max-width: 150px; /* Control image size */
-  height: auto;
-  border: 3px solid var(--dark-bg); /* Add a border around the image */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  flex-shrink: 0; /* Prevent image from shrinking */
-}
-
-.character-info {
-  display: flex;
-  flex-direction: column; /* Stacks h2 and p vertically */
-  text-align: justify; 
-  flex-grow: 1; /* Allows this block to grow and take available space */
-  text-justify: inter-word;
-  min-width: 200px; /* Ensure a minimum width for the text block */
-}
-
-.character-info h2 {
-  margin-top: 0; /* Remove default top margin */
-  text-align: center;
-  margin-bottom: 5px; /* Space between h2 and p */
-  color: #3C56C0;
-  font-family: "Playpen Sans", cursive;;
-  font-size: clamp(1.2em, 1.1vw, 2em); /* Responsive font size */
-}
-
-.character-info p {
-  margin-top: 0; /* Remove default top margin */
-    color: var(--blue);
-    font-weight: 600;
-      text-justify: inter-word;
-        text-align: justify; /* Aligns text within this block justifies it */
-  font-size: clamp(0.3em, 0.8dvw, 1.2em); /* Responsive font size */
-}
-
-.page-controls {
-    background-color: var(--gold) ;
-    border: none;
-    color: var(--blue) ;
-    padding: 20px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: auto;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.page-controls:hover {
-    background-color: var(--blue) ;
-    color: var(--gold) ;
 }
 
 /* New Styles for Characters Page (matching the image) */
@@ -221,22 +148,19 @@ p {
 
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid for thumbnails */
-    gap: 15px; /* Space between thumbnails */
+    grid-template-columns: repeat(auto-fit, minmax(1px, 160px)); /* Responsive grid for thumbnails *//* Space between thumbnails */
     padding: 10px;
-    background-color: var(--light-purple); /* Background for the grid section */
+    background-color: var(--gold); /* Background for the grid section */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 }
 
 .character-thumbnail {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding-top: 100%; /* Creates a square aspect ratio for the container */
-    position: relative;
+    width: 150px; /* Fixed width for the thumbnail container */
+    height: 150px; /* Fixed height for the thumbnail container */
+    /* Removed padding-top: 100%; as we are using fixed width/height */
+    position: relative; /* Keep relative for absolute positioning of image if needed */
     overflow: hidden; /* Hide anything outside the rounded corners */
     border-radius: 10px; /* Rounded corners for the thumbnail container */
     background-color: #fff; /* White background for thumbnails */
@@ -250,18 +174,144 @@ p {
 }
 
 .character-thumbnail img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    /* Position properties removed as flexbox handles centering */
+    width: 100%; /* Image takes full width of its fixed container */
+    height: 100%; /* Image takes full height of its fixed container */
     object-fit: contain; /* Ensures the entire image is visible, scales down if needed */
     border-radius: 10px; /* Apply border-radius to the image itself */
-    border: 2px solid var(--blue); /* Blue border around the images */
-    padding: 5px; /* Padding inside the border */
     box-sizing: border-box; /* Include padding in the image size */
 }
 
+
+/* Add these styles to your existing style.css file */
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between project items */
+    padding: 20px;
+    max-width: 800px; /* Limit width to match container */
+    margin: 0 auto; /* Center the list */
+    box-sizing: border-box;
+}
+
+.project-item {
+    display: flex;
+    align-items: center; /* Vertically align image and text */
+    background-color: var(--gold); /* Yellow background as per image */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    color: var(--blue);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project-icon {
+    width: 100px; /* Fixed width for the icon */
+    height: 100px; /* Fixed height for the icon */
+    border-radius: 5px; /* Slightly rounded corners for the icon */
+    margin-right: 20px; /* Space between icon and text */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    background-color: #fff; /* White background for the icon area */    
+    box-sizing: border-box;
+    object-fit: contain;
+    object-position: center;
+}
+
+.project-info {
+    flex-grow: 1; /* Allows text content to take remaining space */
+    text-align: left; /* Align text to the left */
+}
+
+.project-title {
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(1em, 1.1vw, 1.5em);
+    color: var(--blue); /* Blue text color as per image */
+    margin: 0 0 10px 0; /* Adjust margins */
+}
+
+.project-description {
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: clamp(0.8em, 1.2vw, 1em);
+    color: var(--blue); /* Blue text color as per image */
+    margin: 0; /* Remove default paragraph margins */
+    line-height: 1.4;
+    float: left;
+    text-align: left;
+}
+
+/* Dark Mode specific styles for projects */
+body.dark-mode .project-item {
+    background-color: var(--dark-text); /* Matches dark mode text color */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .project-item:hover {
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .project-icon {
+    border-color: var(--dark-surface); /* Dark mode border color */
+    background-color: var(--dark-bg); /* Dark mode icon background */
+}
+
+body.dark-mode .project-title,
+body.dark-mode .project-description {
+    color: var(--dark-surface); /* Dark mode text color */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .projects-list {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .project-item {
+        flex-direction: column; /* Stack icon and text vertically on small screens */
+        text-align: center;
+        padding: 10px;
+    }
+
+    .project-icon {
+        margin-right: 0; /* Remove horizontal margin */
+        margin-bottom: 15px; /* Add vertical margin */
+        width: 80px; /* Slightly smaller icon on mobile */
+        height: 80px;
+    }
+
+    .project-info {
+        text-align: center; /* Center text when stacked */
+    }
+}
+
+.page-controls {
+    background-color: var(--gold) ;
+    border: none;
+    color: var(--blue) ;
+    padding: 20px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: auto;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-controls:hover {
+    background-color: var(--blue) ;
+    color: var(--gold) ;
+}
 
 /* Add these styles to your existing style.css file */
 
@@ -275,7 +325,7 @@ p {
 }
 
 .gallery-item {
-    background-color: var(--gold); /* Matches your dark mode surface color */
+    background-color: var(--dark-surface); /* Matches your dark mode surface color */
     border-radius: 10px;
     overflow: hidden; /* Ensures image corners are rounded with the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -298,6 +348,13 @@ p {
     object-fit: cover; /* Ensures images cover the area without distortion */
 }
 
+.image-caption {
+    padding: 15px;
+    color: var(--dark-text); /* Matches your dark mode text color */
+    font-size: clamp(0.8em, 1.2vw, 1em);
+    margin: 0; /* Remove default paragraph margins */
+    font-family:  "Playpen Sans", cursive;
+}
 
 /* Modal (Lightbox) Styles */
 .modal {
@@ -328,7 +385,7 @@ p {
 
 .modal-caption {
     position: absolute; /* Position relative to the modal container */
-    bottom: 5px; /* 20px from the bottom */
+    bottom: 1px; /* 20px from the bottom */
     left: 50%; /* Start from the middle horizontally */
     transform: translateX(-50%); /* Pull back by half its width to center */
     width: 100%; /* Take full width of the modal for centering purposes */
@@ -338,8 +395,8 @@ p {
     text-align: center;
     padding: 10px 0; /* Add vertical padding */
     box-sizing: border-box; /* Include padding in width calculation */
-    margin-top: 10px; /* Added margin-top */
-    font-family: "Playpen Sans", cursive;
+    margin-top: 15px; /* Added margin-top */
+    font-family:  "Playpen Sans", cursive;
 }
 
 /* Close Button */
@@ -380,7 +437,11 @@ body.dark-mode .gallery-item {
 }
 
 body.dark-mode .gallery-item img {
-    border-bottom-color: var(--dark-text);
+    border-bottom-color: var(--dark-text); /* This will be overridden by the specific dark mode rule below */
+}
+
+body.dark-mode .image-caption {
+    color: var(--dark-text);
 }
 
 /* Responsive adjustments for smaller screens */
@@ -395,6 +456,9 @@ body.dark-mode .gallery-item img {
     }
 }
 
+a{
+    text-decoration: none;
+}
 
 aside {
   width: 30%;
@@ -441,7 +505,7 @@ h1 {
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    font-size: clamp(1.5em, 2vw, 3em);
+    font-size: clamp(1.5em, 4vw, 3em);
 }
 
 li {
@@ -516,6 +580,14 @@ body.dark-mode .topnav a:hover {
     color: #fff;
 }
 
+body.dark-mode .project-item p{
+    color: white;
+}
+
+body.dark-mode .project-title {
+    color: white;
+}
+
 body.dark-mode .topnav a.active {
     background-color: var(--dark-header);
     color: var(--dark-title);
@@ -541,6 +613,18 @@ body.dark-mode h2{
 body.dark-mode pre {
     color: white;
     background-color: var(--dark-header);
+}
+
+body.dark-mode .page-main-title{
+    color: var(--dark-text);
+}
+
+body.dark-mode .character-grid{
+    background-color: var(--dark-title);
+}
+
+body.dark-mode .series-title{
+    color: var(--dark-text);
 }
 
 body.dark-mode p {
@@ -628,17 +712,22 @@ body.dark-mode .comic-title {
     align-items: center;
   }
 
+  p {
+    font-size: 20px;
+  }
+
   .container {
     align-items: center;
     justify-content: center;
   }
 
-  .comic-title {
+  .comic-title h2 {
     width: 100%;
     text-align: center;
     margin: 0 auto;
+    font-family: "Playpen Sans", cursive;
   }
-
+  
   .temp-buttons {
     display: flex;
     justify-content: center;
@@ -669,10 +758,4 @@ body.dark-mode .comic-title {
     min-width: 0; /* Allow content to shrink below its content size if necessary */
     align-items: center;
   }
-}
-
-.gallery-item img {
-    width: 100%; /* Image takes full width of its container */
-    height: 400px; /* Fixed height for consistent image size */
-    object-fit: cover; /* Ensures images cover the area without distortion */
 }
