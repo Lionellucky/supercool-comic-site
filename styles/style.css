@@ -292,6 +292,11 @@ body.dark-mode .project-description {
     .project-info {
         text-align: center; /* Center text when stacked */
     }
+
+    .character-thumbnail img{
+        width: 50px;
+        height: 50px;
+    }
 }
 
 .page-controls {
