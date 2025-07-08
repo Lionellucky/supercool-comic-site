@@ -1,2 +1,2 @@
 # sevennoodle comic site
-## https://lionellucky.github.io/supercool-comic-site/projects.html
+## https://lionellucky.github.io/supercool-comic-site/
