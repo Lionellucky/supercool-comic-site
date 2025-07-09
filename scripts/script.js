@@ -27,33 +27,19 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // Add more comics as needed
         'comic3': {
-            title: 'Saiki_K_Moment',
-            description: '',
-            pages: [
-                'img/comics/Saiki_K_Moment.png',
-            ]
-        },
-        'comic4': {
             title: 'The Ways That You Talk To Me...',
             description: '',
             pages: [
                 'img/comics/THE_WAYS_THAT_YOU_TALK_TO_ME.png',
             ]
         },
-        'comic5': {
+        'comic4': {
             title: 'This is canon btw',
             description: '',
             pages: [
                 'img/comics/This_is_canon_btw.png',
             ]
-        },
-        'comic6': {
-            title: 'Saiki_K_Moment',
-            description: '',
-            pages: [
-                'img/comics/Saiki_K_Moment.png', // Placeholder for Comic pages
-            ]
-        },
+        }
     };
 
     // --- Comic Page Navigation ---
@@ -135,14 +121,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Click Sound Effect ---
+    // Define the Audio object once
     const mouseclick = new Audio("./sounds/click.mp3");
     mouseclick.volume = 1;
     mouseclick.preload = "auto";
 
+    // Add event listeners for buttons and links
     document.querySelectorAll('button, a').forEach(element => {
         element.addEventListener('mousedown', () => {
+            // Clone the sound to allow multiple rapid plays without cutting off previous ones
             const clickSound = mouseclick.cloneNode();
             clickSound.play().catch(e => console.error("Failed to play sound:", e));
+        });
+    });
+
+    // Add event listeners for <details> elements to play sound on toggle
+    document.querySelectorAll('details').forEach(detailElement => {
+        detailElement.addEventListener('toggle', () => {
+            // Play sound only when the details element is opened
+            if (detailElement.open) {
+                const clickSound = mouseclick.cloneNode();
+                clickSound.play().catch(e => console.error("Failed to play sound:", e));
+            }
         });
     });
 
