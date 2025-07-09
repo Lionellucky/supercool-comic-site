@@ -3,62 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/thumbs/pg4.jpg" type="image/jpg">
-    <!-- curently uses style.css -->
+    <link rel="icon" href="img/pda.jpg" type="image/jpg">
+    <!-- currently uses style.css -->
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
-    
-    <title>test site</title>   
-        
+    <link rel="stylesheet" href="./styles/lightswitch.css">
+    <link rel="stylesheet" href="./styles/bbplayer-minimal.css"/>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>7noodle's Studio | About</title>
+
 </head>
 
 <body>
-
     <header class="header">
-    <img src="./img/7Noodle_Studio_Title.webp" alt="Placeholder Image">
+    <img src="./img/7Noodle_Studio_Title.webp" alt="7Noodle Studio Title Logo">
+    <label id="lightSwitch" aria-checked="false" role="switch" class="switch">
+        <input type="checkbox" />
+        <span class="slider">
+            <span class="slider-inner"></span>
+        </span>
+    </label>
     </header>
 
     <div class="topnav" id="myTopnav">
-        <a href="home.html">Home</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="projects.html" class="active">Projects</a>
-        <a href="characters.html">Characters</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
-        <a href="javascript:void(0);" class="icon" onclick="topNavFunc()">
-            <i class="fa fa-bars"></i>
-        </a>
+        <a href="index.html" onmousedown="mouseclick.play()">Home</a>
+        <a href="gallery.html" onmousedown="mouseclick.play()">Gallery</a>
+        <a href="comics.html" onmousedown="mouseclick.play()">Projects</a> <!-- Set Projects as active -->
+        <a href="characters.html" onmousedown="mouseclick.play()">Characters</a>
+        <a href="lore.html" onmousedown="mouseclick.play()">Lore</a>
+        <a href="contact.html" class="active" onmousedown="mouseclick.play()">Contact</a>
+        <a href="about.html"  onmousedown="mouseclick.play()">About</a>
+        <a href="extras.html" onmousedown="mouseclick.play()">Extras</a>
     </div>
     <br>
     <!-- Main content -->
+    
     <div class="container">
+        <h1>Contacts</h1>
+        wip
+        <p><a href="https://www.youtube.com/@SevenNoodle/featured"><img src="" alt="yt "></a><a href="https://www.tiktok.com/@sevennoodle?_t=ZS-8xsqZcSxvLb&_r=1"><img src="" alt="tiktok "></a><a href="https://x.com/SevenNoodle?t=hAafj-XRXF47FSeqtDzv4Q&s=09"><img src="" alt="x "></a>
 
-        <div class="archivePage subPage" style="text-align: center;">
-        <h1>Archive</h1>
-        <script>
-        indexPage = "index.html" //set which html page your comics are on, supremely important. archive system will break otherwise
-        </script>
-        <div class="lastfirst">
-            <h2>"Wait, that's it? I thought there were more."</h2>
-        <table class="archiveTable">
-            
-        </table>
-    </div>
+            <!-- Add more project items as needed -->
+
+        
+        
         <br>    
     </div>
-
+    <!-- End of main content -->
     <div class="footer">
         <p>© 2023 Placeholder Name. All rights reserved.</p>
         <p>Contact: <a href="mailto:#">test link</a></p>
 
     </div>
-    <!-- End of main content -->
+    
+    
+    
     <br>
     <div class="sybaupunch">
         <a href="https://youtu.be/l2J5dfOGRNc?si=MKQsUaZUc4-IazVa"><img src="./img/sybaupunch.jpg" alt="Sybau 💔"></a>
     </div>
-<script src="./scripts/script.js" defer></script>
+    <!-- BBPlayer, a custom music player I forked from another repo, say some shit if you found a bug and send it to me! -->
+<div class="bbplayer">
+      <span class="bb-rewind"></span>
+      <span class="bb-play"></span>
+      <span class="bb-forward"></span>
+      <div class="playerWindow">
+        <div class="bb-track-display">
+          <span class="bb-trackTime">--:--</span>
+          <span class="bb-trackTitle">&nbsp;</span>
+          <span class="bb-trackLength">--:--</span>
+        </div>
+        <div class="bb-album-display">
+          <span class="bb-artist">Made from my album</span> -
+          <span class="bb-album">my shitty ass playlist</span>
+        </div>
+      </div>
+      
+      <span class="bb-albumCover">&nbsp;</span>
+    
+      <audio loop>
+        <source
+           src="media/Snake Eater Neuro ver..mp3" type="audio/mpeg"
+           data-album="Neuro-sama"
+           data-artist="Neuro"
+           data-image="media/Blue Browne small.jpg"/>
+        <source
+           src="media/Snake Eater Evil ver..mp3" type="audio/mpeg"
+           data-album="AAA"
+           data-artist="AAA"
+           data-image="../img/pda.jpg"/>
+        HTML5 Audio Not Available
+      </audio>
+    </div>
+    <script src="./scripts/bbplayer.js"></script>
+    <script src="./scripts/script.js"></script>
+
 </body>
 </html>
