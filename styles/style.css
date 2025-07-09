@@ -30,6 +30,7 @@ body {
     color: var(--gold) ; 
     cursor: url(./img/cursor/gam1571.ani), auto;
     transition: background-color 0.3s ease, color 0.3s ease; /* Added transitions */
+    overflow-x: hidden; /* Added to prevent horizontal overflow on the body */
 }
 @keyframes scrollBackground {
     from { background-position: 0 0; }
@@ -91,6 +92,10 @@ body {
     white-space: nowrap;
 }
 
+.introduction p{
+    font-size: clamp(0.8em, 2vw, 1em);
+}
+
 .comic img{
     display: block;
     margin-left: auto;
@@ -110,6 +115,11 @@ p {
     font-weight: 400;
     font-style: normal;
     font-size: clamp(20px, 1em, 2em);
+}
+
+.about-us img{
+  width: 400px;
+  height: auto;
 }
 
 .page-main-title { /* Changed h1 to page-main-title for specific styling */
@@ -145,41 +155,61 @@ p {
     margin-bottom: 20px;
     padding-left: 10px; /* Indent slightly for alignment */
 }
-
 .character-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(1px, 160px)); /* Responsive grid for thumbnails *//* Space between thumbnails */
+    /* Changed the grid-template-columns to ensure better responsiveness and prevent stacking */
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); /* Adjusted minmax value */
+    gap: 20px; /* Space between thumbnails */
     padding: 10px;
     background-color: var(--gold); /* Background for the grid section */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    justify-content: center; /* Center grid items horizontally within the grid container */
 }
 
 .character-thumbnail {
-    width: 150px; /* Fixed width for the thumbnail container */
-    height: 150px; /* Fixed height for the thumbnail container */
-    /* Removed padding-top: 100%; as we are using fixed width/height */
-    position: relative; /* Keep relative for absolute positioning of image if needed */
-    overflow: hidden; /* Hide anything outside the rounded corners */
-    border-radius: 10px; /* Rounded corners for the thumbnail container */
-    background-color: #fff; /* White background for thumbnails */
+    /* Set a max-width and max-height, and allow it to shrink */
+    width: 100%; /* Ensures it takes full width of its grid cell */
+    max-width: 150px; /* Optional: cap maximum individual thumbnail size */
+    height: auto; /* Allows height to adjust proportionally */
+    padding-top: 100%; /* This is a common trick for square aspect ratio with flexible width */
+    position: relative; /* Needed for padding-top trick */
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.character-thumbnail:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    /* Removed fixed clamp widths/heights to allow grid to control size */
+    display: flex; /* Use flexbox to center the image inside the thumbnail */
+    justify-content: center;
+    align-items: center;
 }
 
 .character-thumbnail img {
-    /* Position properties removed as flexbox handles centering */
-    width: 100%; /* Image takes full width of its fixed container */
-    height: 100%; /* Image takes full height of its fixed container */
-    object-fit: contain; /* Ensures the entire image is visible, scales down if needed */
-    border-radius: 10px; /* Apply border-radius to the image itself */
-    box-sizing: border-box; /* Include padding in the image size */
+    position: absolute; /* Needed with padding-top trick */
+    top: 0;
+    left: 0;
+    width: 100%; /* Image takes full width of its container */
+    height: 100%; /* Image takes full height of its container */
+    object-fit: cover; /* Changed to 'cover' to fill the space, cropping if necessary */
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Also adjust the media query for smaller screens if needed */
+@media (max-width: 600px) {
+    .character-thumbnail {
+        max-width: 100px; /* Smaller max-width for very small screens */
+    }
+    .character-grid {
+         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Even smaller minmax for mobile */
+         gap: 10px; /* Reduce gap on smaller screens */
+    }
+}
+.character-thumbnail:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -190,13 +220,16 @@ p {
     flex-direction: column;
     gap: 20px; /* Space between project items */
     padding: 20px;
-    max-width: 800px; /* Limit width to match container */
+    width: 100%; /* fuck this im using 100% */
+    max-width: 100%; /* Added to ensure it doesn't exceed parent width */
     margin: 0 auto; /* Center the list */
     box-sizing: border-box;
 }
 
 .project-item {
     display: flex;
+    width: 100%;
+    height: auto;
     align-items: center; /* Vertically align image and text */
     background-color: var(--gold); /* Yellow background as per image */
     border-radius: 10px;
@@ -271,32 +304,7 @@ body.dark-mode .project-description {
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
-    .projects-list {
-        padding: 10px;
-        gap: 15px;
-    }
 
-    .project-item {
-        flex-direction: column; /* Stack icon and text vertically on small screens */
-        text-align: center;
-        padding: 10px;
-    }
-
-    .project-icon {
-        margin-right: 0; /* Remove horizontal margin */
-        margin-bottom: 15px; /* Add vertical margin */
-        width: 80px; /* Slightly smaller icon on mobile */
-        height: 80px;
-    }
-
-    .project-info {
-        text-align: center; /* Center text when stacked */
-    }
-
-    .character-thumbnail img{
-        width: 50px;
-        height: 50px;
-    }
 }
 
 .page-controls {
@@ -451,19 +459,14 @@ body.dark-mode .image-caption {
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
-    .gallery-grid {
-        grid-template-columns: 1fr; /* Single column on very small screens */
-        padding: 10px;
-    }
 
-    .gallery-item img {
-        height: 180px; /* Slightly smaller image height on mobile */
-    }
 }
 
 a{
     text-decoration: none;
 }
+
+
 
 aside {
   width: 30%;
@@ -495,16 +498,17 @@ aside {
     justify-content: center;
     height: auto;
     background-color: var(--light-red) ;
-    width: clamp(200px, 100dvw, 1000px);
+    /* Adjusted width to be more flexible, using max-width for control */
+    width: 90%; /* Changed from 'auto' to '90%' for a preferred width */
+    max-width: 800px; /* Or a suitable max-width for desktop */
     margin: 0 auto;
-    padding: 20px 40px 40px 40px;
+    padding: 50px; /* Consider a more responsive padding like 5% */
     box-sizing: border-box;
     border-radius: 10px;
     margin-top: 100px;
     box-shadow: 0 8px 100px rgba(0, 0, 0, 0.8);
     transition: background-color 0.3s ease;
 }
-
 h1 {
     text-align: center;
     font-family: "Playpen Sans", cursive;
@@ -526,7 +530,7 @@ li {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    width: clamp(20px, 40dvw, 1000px);
+    width: clamp(20px, 100%, 1000px);
     height: auto;
     border-radius: 10px;
 }
@@ -538,6 +542,9 @@ details {
   font-family: Playpen Sans, cursive;
   margin-bottom: 1em;
   color: var(--blue);
+  cursor: pointer;
+  font-size: clamp(0.8em, 1.2dvw, 1.2em);
+  margin-left: -30px;
 }
 
 /* extra styles */
@@ -545,11 +552,21 @@ details > *:not(summary) {margin: 0.75em 0 0 0;}
 pre {
   color: var(--light-red); 
   padding: 10px;
-  background: white;  
+  background-color: white;  
   border-radius: 5px;
   font-family: Playpen Sans, cursive;
   font-size: clamp(0.8em, 0.5vw, 1.2em);
   white-space: pre-wrap;
+}
+
+details ul {
+    margin-top: 0.2em; /* Adjust as needed */
+    margin-bottom: 0.2em; /* Adjust as needed */
+    line-height: 1.2; /* Adjust as needed, smaller value means closer lines */
+}
+
+details ul li {
+    margin-bottom: 0.2em; /* Adjust spacing between list items */
 }
 
 /* --- Dark Mode Styles --- */
@@ -689,10 +706,12 @@ body.dark-mode .comic-title {
 
   .container {
     width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 30px 15px; /* Adjusted padding for smaller screens */
     margin-top: 30px;
     box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    /* Removed max-width here to let width: 100% and padding define it */
   }
 
   .comic img {
@@ -713,17 +732,8 @@ body.dark-mode .comic-title {
     height: auto;
   }
 
-  body {
-    align-items: center;
-  }
-
   p {
     font-size: 20px;
-  }
-
-  .container {
-    align-items: center;
-    justify-content: center;
   }
 
   .comic-title h2 {
@@ -763,4 +773,40 @@ body.dark-mode .comic-title {
     min-width: 0; /* Allow content to shrink below its content size if necessary */
     align-items: center;
   }
+
+      .projects-list {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .project-item {
+        flex-direction: column; /* Stack icon and text vertically on small screens */
+        text-align: center;
+        padding: 10px;
+    }
+
+    .project-icon {
+        margin-right: 0; /* Remove horizontal margin */
+        margin-bottom: 15px; /* Add vertical margin */
+        width: 60px; /* Adjusted for smaller screens */
+        height: 60px; /* Adjusted for smaller screens */
+    }
+
+    .project-info {
+        text-align: center; /* Center text when stacked */
+    }
+
+    .character-thumbnail {
+        width: 100px;
+        height: 100px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        padding: 10px;
+    }
+
+    .gallery-item img {
+        height: 350px; /* Slightly smaller image height on mobile */
+    }
 }
