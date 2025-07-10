@@ -96,6 +96,8 @@ body {
     font-size: clamp(0.8em, 2vw, 1em);
 }
 
+
+
 .comic img{
     display: block;
     margin-left: auto;
@@ -106,6 +108,12 @@ body {
     height: auto;
     border: #000000 5px solid;
     border-radius: 10px;
+}
+
+/*i didnt want to use this but my GOD what was the problem??*/
+
+.fixed {
+    margin-left: -25px;
 }
 
 p {
@@ -122,15 +130,6 @@ p {
   height: auto;
 }
 
-.page-main-title { /* Changed h1 to page-main-title for specific styling */
-    text-align: center;
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-size: clamp(1.5em, 2vw, 3em);
-    color: var(--gold); /* Color from the image */
-    margin-bottom: 30px;
-}
 
 .charTable { 
   text-align: center; /* Center the entire character section */
@@ -540,6 +539,75 @@ aside {
 }
 
 
+/* Combined box for "Did you know?" and quote */
+        .did-you-know-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "Playpen Sans", cursive;
+            /* Removed background-color, border-radius, and box-shadow from here */
+            overflow: hidden; /* Ensures inner elements respect border-radius of their own */
+            margin-bottom: 16px; /* Equivalent to Tailwind's mb-4 */
+        }
+
+        .did-you-know-title {
+            background-color: var(--gold);
+            color: var(--blue);
+            padding: 8px 24px; /* Equivalent to Tailwind's px-6 py-2 */
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            border-top-left-radius: 5px; /* Apply top radius here */
+            border-top-right-radius: 5px; /* Apply top radius here */
+            margin-bottom: 0; /* Remove space between title and quote */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add shadow to the title bar */
+        }
+
+body.dark-mode .did-you-know-title{
+    background-color: var(--dark-title);
+    color: black;
+}
+
+#quoteDisplay {
+    background-color: #ffffff; /* White background for the quote box */
+    color: var(--blue); /* Blue text for the quote */
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic; /* As per the image "insert random text here" */
+    text-align: center; /* This centers inline content like text */
+    /* Add/ensure these for proper flexbox centering */
+    display: flex; /* Make it a flex container */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    flex-direction: column; /* Stack text if it wraps, but keep it centered */
+    padding: 15px; /* Padding for the quote text itself */
+    width: 100%; /* Ensure it takes full width of its parent */
+    min-height: 200px;
+    box-sizing: border-box; /* Include padding in width */
+    border-top: none; /* No top border, as it connects to the title */
+    border-bottom-left-radius: 5px; /* Apply bottom radius here */
+    border-bottom-right-radius: 5px; /* Apply bottom radius here */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Add shadow to the quote box */
+}
+
+body.dark-mode #quoteDisplay{
+    color: var(--dark-title);
+}
+        .small-text { /* For the small text below the quote */
+            color: var(--gold);
+            font-family: "Playpen Sans", cursive;
+            font-size: 0.75em; /* Equivalent to Tailwind's text-xs */
+            margin-top: 8px; /* Equivalent to Tailwind's mt-2 */
+        }
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            #quoteDisplay {
+                font-size: clamp(0.8em, 3.5vw, 1.2em);
+            }
+        }
+
 .sybaupunch {
     display: flex;
     justify-content: center;
@@ -697,10 +765,6 @@ body.dark-mode h2{
 body.dark-mode pre {
     color: white;
     background-color: var(--dark-header);
-}
-
-body.dark-mode .page-main-title{
-    color: var(--dark-text);
 }
 
 body.dark-mode .character-grid{
