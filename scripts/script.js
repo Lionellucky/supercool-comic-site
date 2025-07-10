@@ -207,3 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 }); // End of DOMContentLoaded
+
+
+function toggleNav() {
+  const nav = document.getElementById("myTopnav");
+  nav.classList.toggle("show");
+}
