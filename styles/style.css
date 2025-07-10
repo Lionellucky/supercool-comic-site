@@ -36,11 +36,23 @@ body {
     from { background-position: 0 0; }
     to { background-position: 100% 100%; }
 }
+.spin {
+    display:inline-block;
+    animation:spin 1s linear infinite;
+    transform-origin:center center;
+    margin:100px auto;
+    overflow:visible;
+}
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
+
 
 .header{
     display: flex;
@@ -57,6 +69,25 @@ body {
     display: inline-block;
     margin: 0;
 }
+
+/* Style for the navigation toggle button (hamburger icon) */
+.nav-toggle {
+    display: none; /* Make sure it's visible */
+    font-size: 15px;
+    color: var(--gold);
+    cursor: pointer;
+    background-color: var(--light-red);
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    /* Positioning styles to center the button */
+    width: fit-content;         /* Only as wide as content */
+    margin: auto;          /* Center horizontally */
+    padding: 1px 10px;         /* Add some padding */
+    border-radius: 0px 0px 1985px 1985px; /* This is a short hand syntax */       /* Optional: rounded corners */
+}
+
+
 
 .topnav {
     font-family: "Playpen Sans", cursive;
@@ -113,7 +144,7 @@ body {
 /*i didnt want to use this but my GOD what was the problem??*/
 
 .fixed {
-    margin-left: -25px;
+    margin-left: -45px;
 }
 
 p {
@@ -145,7 +176,7 @@ p {
     margin-right: auto;
 }
 
-.series-title { 
+.series-title {
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
@@ -307,9 +338,6 @@ body.dark-mode .project-description {
 }
 
 .page-controls {
-    background-color: var(--gold) ;
-    border: none;
-    color: var(--blue) ;
     padding: 20px 25px;
     text-align: center;
     text-decoration: none;
@@ -320,9 +348,8 @@ body.dark-mode .project-description {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.page-controls:hover {
-    background-color: var(--blue) ;
-    color: var(--gold) ;
+.page-controls:hover img{ 
+    content: url('img/pagenav/lighthoverleft.webp');
 }
 
 /* Add these styles to your existing style.css file */
@@ -801,6 +828,11 @@ body.dark-mode .comic-title {
     color: var(--dark-title);
 }
 
+body.dark-mode .nav-toggle{
+    color: var(--dark-text);
+    background-color: var(--dark-surface);
+}
+
 
 @media (max-width: 600px) {
   .header {
@@ -808,13 +840,24 @@ body.dark-mode .comic-title {
   }
 
   .header img {
-    max-width: 80%;
+    max-width: 70%; /* Make room for the nav toggle */
     height: auto;
-    margin: 0 auto;
+    margin: 0;
     display: block;
   }
+  
+  /* Show the nav toggle on small screens */
+  .nav-toggle {
+      display: block;
+  }
 
+  /* Hide the topnav by default on small screens */
   .topnav {
+    display: none;
+  }
+  
+  /* This class is added by JS to show the nav */
+  .topnav.show {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -831,7 +874,7 @@ body.dark-mode .comic-title {
   }
 
   .container {
-    width: 100%;
+    width: 90%;
     padding: 30px 15px; /* Adjusted padding for smaller screens */
     margin-top: 30px;
     box-sizing: border-box;
@@ -934,5 +977,9 @@ body.dark-mode .comic-title {
 
     .gallery-item img {
         height: 350px; /* Slightly smaller image height on mobile */
+    }
+
+    .spin p{
+        font-size: xx-small;
     }
 }
