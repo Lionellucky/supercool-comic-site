@@ -466,6 +466,68 @@ a{
     text-decoration: none;
 }
 
+/* Styles for social media buttons */
+.social-button {
+    display: flex; /* Use flexbox for alignment of icon and text */
+    align-items: center; /* Vertically align items in the center */
+    background-color: var(--gold); /* Gold background as per image */
+    color: var(--blue); /* Blue text color */
+    padding: 10px 20px; /* Padding inside the button */
+    margin-bottom: 20px; /* Space between buttons */
+    border-radius: 10px; /* Rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    width: 90%; /* Adjust width as needed */
+    height: auto;
+    max-width: 600px; /* Max width for larger screens */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition for hover effects */
+    font-family: "Playpen Sans", cursive; /* Font from your existing styles */
+    font-weight: 600; /* Bold text */
+    font-size: clamp(1em, 1.5vw, 1.2em); /* Responsive font size */
+}
+
+.social-button:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.button-icon {
+    width: 100px; /* Size of the icon */
+    height: 100px; /* Size of the icon */
+    margin-right: 15px; /* Space between icon and text */
+    object-fit: contain; /* Ensure the image fits within the bounds */
+}
+
+.button-text {
+    flex-grow: 1; /* Allows the text to take up available space */
+    text-align: center; /* Center the text within its flexible space */
+}
+
+/* Dark mode adjustments for social buttons */
+body.dark-mode .social-button {
+    background-color: var(--dark-text); /* Dark mode background */
+    color: var(--dark-surface); /* Dark mode text color */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .social-button:hover {
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .social-button {
+        width: 90%; /* Wider buttons on small screens */
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    .button-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+}
 
 
 aside {
