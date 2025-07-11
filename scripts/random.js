@@ -13,7 +13,7 @@
             { quoteText: "A Teto venom comic was used as the placeholder comic of this site. (It still exists within the site if you look carefully enough!)", author: "", link: "" },
             { quoteText: "Out of everything here on this site, the coder struggled with the playlist feature the most!", author: "", link: "" },
             { quoteText: "There's a secret gallery in this page with a drawing of femboy Albion!", author: "", link: "" },
-            { quoteText: "Sevennoodle Lore?!?!?", author: "Click Me!", link: "secret.html" }
+            { quoteText: "Sevennoodle Lore?!?!?", author: "Click Me!", link: "supersecretlore.html" }
         ];
 
         /**
