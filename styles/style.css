@@ -28,7 +28,7 @@ body {
     font-size: clamp(0.1em, 1.5em, 2em);
     animation: scrollBackground 10s linear infinite;
     color: var(--gold) ; 
-    cursor: url(./img/cursor/gam1571.ani), auto;
+    cursor: url(https://cdn.custom-cursor.com/db/22835/32/memes-tung-tung-tung-sahur-pointer.png), pointer;
     transition: background-color 0.3s ease, color 0.3s ease; /* Added transitions */
     overflow-x: hidden; /* Added to prevent horizontal overflow on the body */
 }
@@ -95,7 +95,7 @@ body {
     font-weight: 600;
     background-color: #ffffff; 
 
-    transition: background-color 0.3s ease;
+    transition: background-color 1s ease color;
 }
 
 .topnav a {
@@ -123,6 +123,8 @@ body {
     white-space: nowrap;
 }
 
+
+
 .introduction p{
     font-size: clamp(0.8em, 2vw, 1em);
 }
@@ -144,7 +146,7 @@ body {
 /*i didnt want to use this but my GOD what was the problem??*/
 
 .fixed {
-    margin-left: -45px;
+    margin-left: -30px;
 }
 
 p {
@@ -332,24 +334,109 @@ body.dark-mode .project-description {
     color: var(--dark-surface); /* Dark mode text color */
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 600px) {
-
-}
+/* In style.css */
 
 .page-controls {
-    padding: 20px 25px;
+    display: inline-block; /* Make them behave like inline-block elements to set width/height */
+    width: 60px; /* Adjust as needed for your image size */
+    height: 60px; /* Adjust as needed for your image size */
+    background-size: contain; /* Ensures the whole image is visible */
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999px; /* Hides the alt text visually if you were to keep it */
+    transition: background-image 0.2s ease; /* Smooth transition for the image change */
+}
+
+/* Default images */
+.page-controls.first-page {
+    background-image: url('../img/pagenav/lightleft1.webp');
+}
+
+.page-controls.prev-page {
+    background-image: url('../img/pagenav/lightleft.webp');
+}
+
+.page-controls.next-page {
+    background-image: url('../img/pagenav/lightright.webp');
+}
+
+.page-controls.last-page {
+    background-image: url('../img/pagenav/lightright1.webp');
+}
+
+/* Hover images */
+.page-controls.first-page:hover {
+    background-image: url('../img/pagenav/lighthoverleft1.webp');
+}
+
+.page-controls.prev-page:hover {
+    background-image: url('../img/pagenav/lighthoverleft.webp');
+}
+
+.page-controls.next-page:hover {
+    background-image: url('../img/pagenav/lighthoverright.webp');
+}
+
+.page-controls.last-page:hover {
+    background-image: url('../img/pagenav/lighthoverright1.webp');
+}
+
+body.dark-mode .page-controls.first-page {
+    background-image: url('../img/pagenav/darkleft1.webp'); /* Set dark mode default */
+}
+
+body.dark-mode .page-controls.prev-page {
+    background-image: url('../img/pagenav/darkleft.webp');
+}
+
+body.dark-mode .page-controls.next-page {
+    background-image: url('../img/pagenav/darkright.webp');
+}
+
+body.dark-mode .page-controls.last-page {
+    background-image: url('../img/pagenav/darkright1.webp');
+}
+
+body.dark-mode .page-controls.first-page:hover {
+    background-image: url('../img/pagenav/darkhoverleft1.webp'); /* Hover to light in dark mode */
+}
+
+body.dark-mode .page-controls.prev-page:hover {
+    background-image: url('../img/pagenav/darkhoverleft.webp');
+}
+
+body.dark-mode .page-controls.next-page:hover {
+    background-image: url('../img/pagenav/darkhoverright.webp');
+}
+
+body.dark-mode .page-controls.last-page:hover {
+    background-image: url('../img/pagenav/darkhoverright1.webp');
+}
+
+
+/* You might want to adjust the original .page-controls styling slightly */
+.page-controls {
+    /* Keep existing styles like text-align, display, font-size, margin, etc. */
+    /* Make sure width and height are appropriate for your image sizes */
+    width: 60px; /* Example, adjust to your image size */
+    height: 60px; /* Example, adjust to your image size */
+    line-height: 60px; /* Helps to vertically center text if any, or just to define height */
+    overflow: hidden; /* Important to hide the original link text if you don't remove it */
+    /* Added from your original CSS */
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: auto;
     margin-top: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.page-controls:hover img{ 
-    content: url('img/pagenav/lighthoverleft.webp');
+@media (max-width: 600px) {
+    .page-controls {
+        width: 40px; /* Adjust for smaller screens */
+        height: 40px; /* Adjust for smaller screens */
+        line-height: 40px;
+    }
 }
 
 /* Add these styles to your existing style.css file */
@@ -499,7 +586,7 @@ a{
     background-color: var(--gold); /* Gold background as per image */
     color: var(--blue); /* Blue text color */
     padding: 10px 20px; /* Padding inside the button */
-    margin-bottom: 20px; /* Space between buttons */
+    margin-bottom: 5%; /* Space between buttons */
     border-radius: 10px; /* Rounded corners */
     text-decoration: none; /* Remove underline from links */
     width: 90%; /* Adjust width as needed */
@@ -513,17 +600,21 @@ a{
 }
 
 .social-button:hover {
-    transform: translateY(-3px); /* Lift effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    transform: translateY(-3px); /* Lift effect on hover for the button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover for the button */
 }
 
 .button-icon {
     width: 100px; /* Size of the icon */
-    height: 100px; /* Size of the icon */
+    height: auto; /* Size of the icon */
     margin-right: 15px; /* Space between icon and text */
-    object-fit: contain; /* Ensure the image fits within the bounds */
+    object-fit: inherit; /* Ensure the image fits within the bounds */
+    transition: transform 0.2s ease; /* Add transition for smooth scaling */
 }
 
+.social-button:hover .button-icon {
+    transform: scale(2.5); /* Scale the image up by 10% on hover */
+}
 .button-text {
     flex-grow: 1; /* Allows the text to take up available space */
     text-align: center; /* Center the text within its flexible space */
@@ -659,7 +750,7 @@ body.dark-mode #quoteDisplay{
     width: 90%; /* Changed from 'auto' to '90%' for a preferred width */
     max-width: 800px; /* Or a suitable max-width for desktop */
     margin: 0 auto;
-    padding: 50px; /* Consider a more responsive padding like 5% */
+    padding: 5%; /* Consider a more responsive padding like 5% */
     box-sizing: border-box;
     border-radius: 10px;
     margin-top: 100px;
@@ -814,16 +905,6 @@ body.dark-mode .comic img {
     border-color: #555;
 }
 
-body.dark-mode .page-controls {
-    background-color: var(--dark-text);
-    color: var(--dark-surface);
-}
-
-body.dark-mode .page-controls:hover {
-    background-color: #fff;
-    color: var(--dark-text);
-}
-
 body.dark-mode .comic-title {
     color: var(--dark-title);
 }
@@ -852,17 +933,23 @@ body.dark-mode .nav-toggle{
   }
 
   /* Hide the topnav by default on small screens */
-  .topnav {
-    display: none;
-  }
-  
-  /* This class is added by JS to show the nav */
-  .topnav.show {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
+.topnav {
+  /* ... existing properties ... */
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.topnav.show {
+  /* ... existing properties ... */
+  max-height: 500px; /* Keep this for now */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 
   .topnav a {
     float: none;
@@ -910,13 +997,6 @@ body.dark-mode .nav-toggle{
     text-align: center;
     margin: 0 auto;
     font-family: "Playpen Sans", cursive;
-  }
-  
-  .temp-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin: 1em 0;
   }
 
    /* Responsive adjustments for character entries on small screens */
