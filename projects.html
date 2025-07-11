@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./img/TOASTER.ico" type="image/ico">
-    <!-- currently uses style.css -->
     <link rel="stylesheet" type="text/css" href="./styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +18,6 @@
 <body>
     <header class="header">
     <img src="./img/7Noodle_Studio_Title.webp" alt="Placeholder Image">
-    <!-- Cleaned up the switch: removed duplicate ID -->
     <label id="lightSwitch" aria-checked="false" role="switch" class="switch">
         <input type="checkbox" />
         <span class="slider">
@@ -38,28 +36,26 @@
         <a href="about.html" onmousedown="mouseclick.play()">About</a>
         <a href="extras.html" onmousedown="mouseclick.play()">Extras</a>
     </div>
+    <div class="nav-toggle-container">
+        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNav()">▼</a>
+    </div>
     <br>
-    <!-- Main content -->
-
-    
     <div class="container">
         <div class="comic-title">
 
             <h1>Title Of Comic</h1>
 
         </div>
-        
 
         <div class="comic" >
             <img id="comicImage" src="img/firstcomic/In_Another_Lifetime_Page_1.png" alt="Placeholder Image">
         </div>
         
-        
-        <div class="temp-buttons">
-            <button class="page-controls" onclick="firstPage()" onmousedown="mouseclick.play()">&#8606;</button>
-            <button class="page-controls" onclick="prevPage()" onmousedown="mouseclick.play()"> &larr;</button>
-            <button class="page-controls" onclick="nextPage()" onmousedown="mouseclick.play()"> &rarr;</button>
-            <button class="page-controls" onclick="lastPage()" onmousedown="mouseclick.play()">&#8608;</button>
+        <div>
+            <a class="page-controls first-page" id="first" onclick="firstPage()" onmousedown="mouseclick.play()"></a>
+            <a class="page-controls prev-page" id="prev" onclick="prevPage()" onmousedown="mouseclick.play()"></a>
+            <a class="page-controls next-page" id="next" onclick="nextPage()" onmousedown="mouseclick.play()"></a>
+            <a class="page-controls last-page" id="last" onclick="lastPage()" onmousedown="mouseclick.play()"></a>
         </div>
 
         <div class="comic-info">
@@ -68,8 +64,7 @@
             <p>Date: Placeholder Date</p>
         </div>
 
-            <!-- End of main content -->
-        <br>    
+            <br>    
     </div>
 
     <div class="footer">
@@ -84,15 +79,14 @@
     <div class="sybaupunch">
         <a href="https://youtu.be/l2J5dfOGRNc?si=MKQsUaZUc4-IazVa"><img src="./img/sybaupunch.jpg" alt="Sybau 💔"></a>
     </div>
-    <!-- BBPlayer, a custom music player I forked from another repo, say some shit if you found a bug and send it to me! -->
-<div class="bbplayer">
+    <div class="bbplayer">
       <span class="bb-rewind"></span>
       <span class="bb-play"></span>
       <span class="bb-forward"></span>
       <div class="playerWindow">
         <div class="bb-track-display">
           <span class="bb-trackTime">--:--</span>
-          <span class="bb-trackTitle">&nbsp;</span>
+          <span class="bb-trackTitle"> </span>
           <span class="bb-trackLength">--:--</span>
         </div>
         <div class="bb-album-display">
@@ -101,7 +95,7 @@
         </div>
       </div>
       
-      <span class="bb-albumCover">&nbsp;</span>
+      <span class="bb-albumCover"> </span>
     
       <audio loop>
         <source
