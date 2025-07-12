@@ -28,7 +28,6 @@ body {
     font-size: clamp(0.1em, 1.5em, 2em);
     animation: scrollBackground 10s linear infinite;
     color: var(--gold) ; 
-    cursor: url(https://cdn.custom-cursor.com/db/22835/32/memes-tung-tung-tung-sahur-pointer.png), pointer;
     transition: background-color 0.3s ease, color 0.3s ease; /* Added transitions */
     overflow-x: hidden; /* Added to prevent horizontal overflow on the body */
 }
@@ -940,16 +939,27 @@ body.dark-mode .nav-toggle{
   visibility: hidden;
   pointer-events: none;
   transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Safari */
+  -khtml-user-select: none;    /* Konqueror HTML */
+  -moz-user-select: none;      /* Old versions of Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
 .topnav.show {
   /* ... existing properties ... */
-  max-height: 500px; /* Keep this for now */
+  max-height: 500px;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  -webkit-touch-callout: default; /* Re-enable for iOS if needed when visible */
+  -webkit-user-select: none;   /* Re-enable for Safari if needed when visible */
+  -khtml-user-select: none;    /* Re-enable for Konqueror HTML if needed when visible */
+  -moz-user-select: none;      /* Re-enable for Old versions of Firefox if needed when visible */
+  -ms-user-select: none;       /* Re-enable for Internet Explorer/Edge if needed when visible */
+  user-select: none;           /* Re-enable for others if needed when visible */
 }
-
 
   .topnav a {
     float: none;
