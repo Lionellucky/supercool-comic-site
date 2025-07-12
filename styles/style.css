@@ -738,6 +738,8 @@ body.dark-mode #quoteDisplay{
     margin-bottom: 50px;
 }
 
+
+
 .container {
     display: flex;
     flex-direction: column;
@@ -749,7 +751,7 @@ body.dark-mode #quoteDisplay{
     width: 90%; /* Changed from 'auto' to '90%' for a preferred width */
     max-width: 800px; /* Or a suitable max-width for desktop */
     margin: 0 auto;
-    padding: 5%; /* Consider a more responsive padding like 5% */
+    padding: 1% 5% 5% 5%; /* Consider a more responsive padding like 5% */
     box-sizing: border-box;
     border-radius: 10px;
     margin-top: 100px;
@@ -763,6 +765,8 @@ h1 {
     font-weight: 600;
     font-size: clamp(1.5em, 4vw, 3em);
 }
+
+
 
 li {
     list-style: circle;
@@ -931,6 +935,8 @@ body.dark-mode .nav-toggle{
       display: block;
   }
 
+
+  
   /* Hide the topnav by default on small screens */
 .topnav {
   /* ... existing properties ... */
@@ -960,6 +966,8 @@ body.dark-mode .nav-toggle{
   -ms-user-select: none;       /* Re-enable for Internet Explorer/Edge if needed when visible */
   user-select: none;           /* Re-enable for others if needed when visible */
 }
+
+
 
   .topnav a {
     float: none;
