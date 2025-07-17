@@ -27,7 +27,7 @@ body {
     flex-direction: column;
     font-size: clamp(0.1em, 1.5em, 2em);
     animation: scrollBackground 10s linear infinite;
-    color: var(--gold) ; 
+    color: var(--gold) ;
     transition: background-color 0.3s ease, color 0.3s ease; /* Added transitions */
     overflow-x: hidden; /* Added to prevent horizontal overflow on the body */
 }
@@ -82,17 +82,25 @@ body {
 
 /* Styling for paragraphs within lore entries */
 .lore-entry p {
-    font-size: clamp(0.5em, 0.9vw, 1em);
-    text-align: left; /* Ensure the lore text is left-aligned */
-    margin-bottom: 10px;
+    font-size: clamp(0.9em, 1.2vw, 1.2em);
+    text-align: justify; /* Ensure the lore text is left-aligned */
 }
 
-.lore-entry img {
-    font-size: clamp(0.5em, 0.9vw, 1em);
-    width: 90%;
+.character-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.character-image img{
+    display: block; /* Make the image a block-level element */
+    margin: 0 auto 20px auto; /* Center horizontally and add bottom margin */
+    width: 100%; /* Make the image responsive */
+    max-width: 400px; /* Limit the maximum width */
     border-radius: 1%;
-    text-align: center; /* Ensure the lore text is left-aligned */
-    margin-bottom: 10px;
+    text-align: center; /* Center the image */
+    justify-content: center;
 }
 
 /* Dark Mode adjustments for lore entries */
@@ -131,7 +139,7 @@ body.dark-mode .lore-entry p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     background-color: var(--light-red);
     transition: background-color 0.3s ease;
 }
@@ -166,7 +174,7 @@ body.dark-mode .lore-entry p {
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    background-color: #ffffff; 
+    background-color: #ffffff;
 
     transition: background-color 1s ease color;
 }
@@ -196,7 +204,9 @@ body.dark-mode .lore-entry p {
     white-space: nowrap;
 }
 
-
+a:visited{
+    text-decoration: none;
+}
 
 .introduction p{
     font-size: clamp(0.8em, 2vw, 1em);
@@ -228,7 +238,6 @@ p {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    font-size: clamp(20px, 1em, 2em);
 }
 
 .about-us img{
@@ -237,7 +246,7 @@ p {
 }
 
 
-.charTable { 
+.charTable {
   text-align: center; /* Center the entire character section */
   width: 100%; /* Ensure it takes full width */
 }
@@ -302,16 +311,7 @@ p {
     box-sizing: border-box;
 }
 
-/* Also adjust the media query for smaller screens if needed */
-@media (max-width: 600px) {
-    .character-thumbnail {
-        max-width: 100px; /* Smaller max-width for very small screens */
-    }
-    .character-grid {
-         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Even smaller minmax for mobile */
-         gap: 10px; /* Reduce gap on smaller screens */
-    }
-}
+
 .character-thumbnail:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -333,14 +333,11 @@ p {
 
 .project-item {
     display: flex;
-    width: 100%;
-    height: auto;
     align-items: center; /* Vertically align image and text */
     background-color: var(--gold); /* Yellow background as per image */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 15px;
-    color: var(--blue);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -354,8 +351,6 @@ p {
     height: 100px; /* Fixed height for the icon */
     border-radius: 5px; /* Slightly rounded corners for the icon */
     margin-right: 20px; /* Space between icon and text */
-    flex-shrink: 0; /* Prevent icon from shrinking */
-    background-color: #fff; /* White background for the icon area */    
     box-sizing: border-box;
     object-fit: contain;
     object-position: center;
@@ -375,16 +370,22 @@ p {
     margin: 0 0 10px 0; /* Adjust margins */
 }
 
-.project-description {
+.project-description p{
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
-    font-weight: 400;
-    font-size: clamp(0.8em, 1.2vw, 1em);
+    font-weight: 600;
+    font-size: clamp(1.8em, 4vw, 5em);
     color: var(--blue); /* Blue text color as per image */
     margin: 0; /* Remove default paragraph margins */
-    line-height: 1.4;
     float: left;
     text-align: left;
+    
+}
+
+.project-description{
+    float: left;
+    text-align: left;
+    line-height: 1.4;
 }
 
 /* Dark Mode specific styles for projects */
@@ -518,13 +519,11 @@ body.dark-mode .page-controls.last-page:hover {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
     gap: 20px; /* Space between grid items */
-    padding: 20px;
     width: 100%;
     box-sizing: border-box; /* Include padding in element's total width and height */
 }
 
 .gallery-item {
-    background-color: var(--dark-surface); /* Matches your dark mode surface color */
     border-radius: 10px;
     overflow: hidden; /* Ensures image corners are rounded with the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -534,6 +533,7 @@ body.dark-mode .page-controls.last-page:hover {
     align-items: center; /* Center content horizontally */
     text-align: center; /* Center text */
     cursor: pointer; /* Indicate that the item is clickable */
+    
 }
 
 .gallery-item:hover {
@@ -545,6 +545,8 @@ body.dark-mode .page-controls.last-page:hover {
     width: 100%; /* Image takes full width of its container */
     height: 300px; /* Fixed height for consistent image size */
     object-fit: cover; /* Ensures images cover the area without distortion */
+    /* Added to explicitly remove any border */
+    border: none;
 }
 
 .image-caption {
@@ -631,7 +633,6 @@ body.dark-mode .modal-content {
 
 /* Dark mode specific styles for gallery */
 body.dark-mode .gallery-item {
-    background-color: var(--dark-surface);
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
@@ -720,6 +721,7 @@ body.dark-mode .social-button:hover {
 }
 
 
+/* Old aside style - will be removed or overridden */
 aside {
   width: 30%;
   padding-left: 15px;
@@ -816,34 +818,39 @@ body.dark-mode #quoteDisplay{
 
 .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Default to column for mobile-first */
     align-items: center;
     justify-content: center;
     height: auto;
     background-color: var(--light-red) ;
-    /* Adjusted width to be more flexible, using max-width for control */
-    width: 90%; /* Changed from 'auto' to '90%' for a preferred width */
-    max-width: 800px; /* Or a suitable max-width for desktop */
+    width: 90%;
+    max-width: 1000px; /* Increased max-width for better content display */
     margin: 0 auto;
-    padding: 0 5% 5% 5%; /* Consider a more responsive padding like 5% */
+    padding: 30px 5%; /* Adjusted padding */
     box-sizing: border-box;
     border-radius: 10px;
     margin-top: 100px;
     box-shadow: 0 8px 100px rgba(0, 0, 0, 0.8);
     transition: background-color 0.3s ease;
 }
+
+.container p{
+    font-size: clamp(10px, 1dvw, 15em);
+}
+
 h1 {
     text-align: center;
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
     font-size: clamp(1.5em, 4vw, 3em);
+    color: var(--gold); /* Ensure main title color is gold */
 }
 
 
 
 li {
-    list-style: circle;
+    list-style: none;
     margin: 0;
     padding: 0;
     font-family: "Playpen Sans", cursive;
@@ -875,9 +882,9 @@ details {
 /* extra styles */
 details > *:not(summary) {margin: 0.75em 0 0 0;}
 pre {
-  color: var(--light-red); 
+  color: var(--light-red);
   padding: 10px;
-  background-color: white;  
+  background-color: white;
   border-radius: 5px;
   font-family: Playpen Sans, cursive;
   font-size: clamp(0.8em, 0.5vw, 1.2em);
@@ -905,8 +912,8 @@ body.dark-mode .header {
     background-color: var(--dark-header);
 }
 
-body.dark-mode .h1 {
-    color: var(--dark-title);
+body.dark-mode h1 {
+    color: var(--dark-text);
 }
 
 body.dark-mode .container {
@@ -991,6 +998,166 @@ body.dark-mode .nav-toggle{
     background-color: var(--dark-surface);
 }
 
+/* New styles for character profile layout with aside */
+.character-content-wrapper {
+    display: flex;
+    flex-direction: column; /* Default to column on small screens */
+    gap: 30px; /* Space between main content and aside */
+    width: 100%;
+    align-items: center; /* Center items when in column layout */
+}
+
+.character-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.character-main-info {
+    display: flex;
+    flex-direction: column; /* Image and description stack vertically */
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.character-main-info img{
+    display: flex;
+    flex-direction: column; /* Image and description stack vertically */
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+#characterImage {
+    width: 100%; /* Full width of the container */
+    max-width: 400px; /* Limit maximum width for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+
+.character-description {
+    text-align: center; /* Center the text within the description block */
+}
+
+.character-aside {
+    background-color: var(--gold); /* Gold background for the aside */
+    color: var(--blue); /* Blue text for contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: "Playpen Sans", cursive;
+    line-height: 1.6;
+    width: 100%; /* Full width on smaller screens */
+    box-sizing: border-box;
+    text-align: center; /* Center content within aside */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.character-aside h2 {
+    font-size: clamp(1.1em, 2vw, 1.8em);
+    color: var(--light-red);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.character-aside ul {
+    list-style: none; /* Remove default list bullets */
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Align list items to the left */
+    max-width: 300px; /* Limit width for readability */
+    margin: 0 auto; /* Center the list */
+}
+
+.character-aside ul li {
+    margin-bottom: 8px;
+    font-size: clamp(0.9em, 1.1vw, 1.1em);
+}
+
+.aside-quote {
+    font-style: italic;
+    margin-top: 20px;
+    font-size: clamp(0.8em, 1.1vw, 1.1em);
+}
+
+/* HR element styles */
+.character-divider, .aside-divider, .footer-divider {
+    border: none;
+    height: 3px; /* Thickness of the line */
+    background-color: var(--gold); /* Color of the line */
+    margin: 10px auto; /* Spacing above and below, centered */
+    width: 100%; /* Width of the line */
+    border-radius: 5px; /* Slightly rounded ends */
+    opacity: 0.7; /* Slightly transparent */
+}
+
+.aside-divider {
+    width: 60%; /* Shorter divider for the aside */
+    margin: 15px auto;
+}
+
+.footer-divider {
+    width: 90%; /* Wider divider before the footer */
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+
+/* Dark Mode adjustments for new elements */
+body.dark-mode .character-aside {
+    background-color: var(--dark-surface);
+    color: var(--dark-text);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .character-aside h2 {
+    color: var(--dark-title);
+}
+
+body.dark-mode .character-divider,
+body.dark-mode .aside-divider,
+body.dark-mode .footer-divider {
+    background-color: var(--dark-text); /* Dark mode color for HR */
+}
+
+
+@media (min-width: 768px) { /* Apply side-by-side layout on larger screens */
+    .character-content-wrapper {
+        flex-direction: row; /* Arrange main content and aside side-by-side */
+        align-items: flex-start; /* Align items to the top */
+    }
+
+    .character-main-info {
+        flex: 2; /* Main info takes more space */
+        margin-right: 30px; /* Space between main info and aside */
+        align-items: flex-start; /* Align image and description to the left */
+    }
+
+    .character-image img {
+        margin-left: 0; /* Remove auto margin for left alignment */
+    }
+
+    .character-description {
+        text-align: left; /* Align text to the left in main description */
+    }
+
+    .character-aside {
+        flex: 1; /* Aside takes less space */
+        max-width: 300px; /* Limit aside width */
+        text-align: left; /* Align content to the left within aside */
+    }
+
+    .character-aside ul {
+        margin: 0; /* Remove auto margin for left alignment */
+    }
+}
+
 
 @media (max-width: 600px) {
   .header {
@@ -1003,14 +1170,14 @@ body.dark-mode .nav-toggle{
     margin: 0;
     display: block;
   }
-  
+
   /* Show the nav toggle on small screens */
   .nav-toggle {
       display: block;
   }
 
 
-  
+
   /* Hide the topnav by default on small screens */
 .topnav {
   /* ... existing properties ... */
@@ -1062,6 +1229,12 @@ body.dark-mode .nav-toggle{
     /* Removed max-width here to let width: 100% and padding define it */
   }
 
+  .container img{
+    width: 90%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure images don't exceed container width */
+
+  }
   .comic img {
     max-width: 100%;
     height: auto;
@@ -1074,7 +1247,7 @@ body.dark-mode .nav-toggle{
   .comic-title h2 {
     font-size: clamp(1.2em, 2vw, 1.5em);
   }
-  
+
   .cattime {
     width: clamp(20px, 5vw, 100px);
     height: auto;
@@ -1121,16 +1294,22 @@ body.dark-mode .nav-toggle{
     }
 
     .project-item {
-        flex-direction: column; /* Stack icon and text vertically on small screens */
         text-align: center;
         padding: 10px;
     }
 
-    .project-icon {
-        margin-right: 0; /* Remove horizontal margin */
-        margin-bottom: 15px; /* Add vertical margin */
-        width: 60px; /* Adjusted for smaller screens */
-        height: 60px; /* Adjusted for smaller screens */
+    .project-item img{
+        width: 80px;
+        height: 80px;
+    }
+
+/* Replace the existing mobile styles in your @media (max-width: 600px) section */
+
+.project-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 80px; /* Reasonable mobile size */
+        height: 80px; /* Reasonable mobile size */
     }
 
     .project-info {
@@ -1139,9 +1318,17 @@ body.dark-mode .nav-toggle{
 
     .character-thumbnail {
         width: 100px;
-        height: 100px;
+        height: auto;
     }
-
+    .character-thumbnail img {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .character-grid {
+         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Even smaller minmax for mobile */
+         gap: 15px; /* Reduce gap on smaller screens */
+    }
     .gallery-grid {
         grid-template-columns: 1fr; /* Single column on very small screens */
         padding: 10px;
