@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/TOASTER.ico" type="image/ico">
+    <!-- currently uses style.css -->
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/lightswitch.css">
+    <link rel="preload" href="./sounds/click.mp3" type="audio/mpeg">
+
+    <!-- The title will be updated by JavaScript -->
+    <title>7noodle's Studio | Character</title>
+
+</head>
+
+<body>
+    <header class="header">
+        <img src="./img/7Noodle_Studio_Title.webp" alt="7noodle Studio Title">
+        <label id="lightSwitch" aria-checked="false" role="switch" class="switch">
+            <input type="checkbox" />
+            <span class="slider">
+                <span class="slider-inner"></span>
+            </span>
+        </label>
+    </header>
+
+    <div class="topnav" id="myTopnav">
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="comics.html" >Projects</a>
+        <!-- The 'active' class will be on the main characters page, not here -->
+        <a href="characters.html">Characters</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="extras.html">Extras</a>
+    </div>
+    <div class="nav-toggle-container">
+        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNav()">&#9660;</a>
+    </div>
+    <br>
+    
+    <!-- Main content for character profile -->
+    <div class="container" id="character-profile-container">
+        <!-- Character details will be loaded here by JavaScript -->
+        <h1 id="characterName">Loading...</h1>
+        <hr class="character-divider"> <!-- Added HR element -->
+
+        <div class="character-content-wrapper"> <!-- New wrapper for main content and aside -->
+            <div class="character-main-info"> <!-- Existing character image and description -->
+                <div class="character-image">
+                    <img id="characterImage" src="https://placehold.co/400x600/CCCCCC/000000?text=Loading..." alt="Character Image">
+                </div>
+                <div id="characterDescription">
+                    <p>Please wait while the character information is loaded.</p>
+                </div>
+            </div>
+
+            <aside class="character-aside"> <!-- New ASIDE element -->
+                <h2>Character Quick Facts</h2>
+                <hr class="aside-divider">
+                <ul>
+                    <li><strong>Full Name:</strong> <span id="fullName">Unknown</span></li>
+                    <li><strong>Gender:</strong> <span id="gender">Unknown</span></li>
+                    <li><strong>Age:</strong> <span id="age">[To be loaded]</span></li>
+                </ul>
+                <hr class="aside-divider">
+                <p class="aside-quote">"Imagination is the only weapon in the war with reality."</p>
+            </aside>
+        </div>
+        <!-- NEW: Section for full history -->
+         <div class="character-divider"></div>
+        <div id="characterFullHistory" class="full-history-content">
+            <!-- Full history will be loaded here by JavaScript -->
+            <p>Full history details will appear here.</p>
+        </div>
+    </div>
+    <!-- End of main content -->
+
+    <hr class="footer-divider"> <!-- Added HR before footer -->
+    <div class="footer">
+        <p>© 2024 7noodle's Studio. All rights reserved.</p>
+    </div>
+    
+    <br>
+    <div class="sybaupunch">
+        <a href="https://youtu.be/l2J5dfOGRNc?si=MKQsUaZUc4-IazVa"><img src="./img/sybaupunch.jpg" alt="Sybau 💔"></a>
+    </div>
+    <script src="./scripts/script.js"></script>
+
+</body>
+</html>
