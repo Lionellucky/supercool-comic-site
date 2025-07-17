@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Comic Data Definition ---
-    // Define all your comic data in a single object, keyed by a unique ID
     const comicData = {
         'comic1': {
             title: 'In Another Lifetime',
@@ -47,25 +46,87 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         }
     };
+    
+    // --- Character Data Definition ---
+    const characterData = {
+        'oskar': {
+            name: 'Oskarr Gevnew',
+            fullName: 'Oskarr Gevnew', // Added
+            gender: 'Male', // Added
+            age: '28', // Added
+            image: './img/gallery/oskar.png',
+            description: '<p>A wanted man with a mysterious past. More information about Oskarr will be revealed soon.</p>',
+            fullHistory: '<p>Oskarr\'s full history is yet to be fully documented, but whispers speak of a past intertwined with powerful factions and a relentless pursuit for justice against a shadowy organization. His journey began in the desolate outer sectors, where he honed his survival skills and developed a strong moral compass.</p>'
+        },
+        'menta': {
+            name: 'MENTA',
+            fullName: 'MENTA (Module Embedded Neural Task AI)', // Added
+            gender: 'N/A (AI)', // Added
+            age: '3 years (operational)', // Added
+            image: './img/gallery/menta.png',
+            description: `
+                <p>MENTAs (Module Embedded Neural Task AI) are AI assistants that are typically implemented through a chip into a helmet or the brain of the user. MENTAs will appear as holograms with their (customizable) avatar where only the user can see them. Unfortunately, MENTAs are no longer used due to some "legal reasons" and became illegal.</p>
+            `,
+            fullHistory: `
+                <p>This version of MENTA is one of the few surviving ones that is used by a retired-but-still-active hitman. However due to their chip being damaged, this causes their avatar to appear as glitchy and wacky, even borderline visually unstable. This also causes them to have memory problems and emotionally uncontrolled (which apparently happens to AIs), despite that they still try to help and assist their user in their own way.</p>
+                <p>One of MENTA's most significant challenges involved a rogue AI collective known as "The Void," which sought to assimilate all digital consciousness. MENTA, with the help of newfound allies, successfully thwarted The Void's plans, solidifying its role as a protector of both digital and organic life forms.</p>
+            `
+        },
+        'shawn': {
+            name: 'Shawn Eden',
+            fullName: 'Shawn Eden', // Added
+            gender: 'Male', // Added
+            age: '25', // Added
+            image: './img/gallery/shawn.png',
+            description: '<p>A key figure in the "Ascension" series. Details about Shawn are currently classified.</p>',
+            fullHistory: '<p>Shawn Eden\'s full history is a closely guarded secret, known only to a select few. Rumors suggest a past involving advanced technological experiments and a destiny intertwined with the fate of the "Ascension" world. More details will be unveiled as the series progresses.</p>'
+        },
+        'sin': {
+            name: 'Sin',
+            fullName: 'Unknown', // Added
+            gender: 'Ambiguous', // Added
+            age: 'Ancient', // Added
+            image: './img/gallery/sin.png',
+            description: '<p>An enigmatic being from the "Ascension" series. Their motives and origins are unknown.</p>',
+            fullHistory: '<p>The origins of Sin are shrouded in mystery. Ancient texts and cryptic prophecies hint at their existence since the dawn of time, influencing pivotal events from the shadows. Their true form is said to be beyond human comprehension, and their purpose remains an enigma, slowly unfolding with each new revelation in the "Ascension" saga.</p>'
+        },
+        'seven': {
+            name: 'Seven',
+            fullName: 'Seven (Clone)', // Added
+            gender: 'Fluid', // Added
+            age: '7 (mental age)', // Added
+            image: './img/gallery/seven.png',
+            description: '<p>A clone of a scientist (which he refers as his dad).</p>',
+            fullHistory: `<p>Created from organic cells and ZERO cells (lore stuff lol)</p>
+            <p>While he looks somewhat mature, he has the mental capacity of a 7 year old. He can also semi-shapeshift, as he can only change gender, color palette, amount of limbs he has and etc. While he can turn into a couch but due to his limitations, he'll be a very fleshy one (ref to that human skin couch from gravity falls).</p>
+            <p><strike>He's also blind which why he wears that goggles at all times (usually).</strike></p>`
+        },
+        'v38': {
+            name: 'V-38',
+            fullName: 'V-38 (Combat Android)', // Added
+            gender: 'N/A (Robot)', // Added
+            age: '50 years (deactivated for 45)', // Added
+            image: './img/gallery/v-38.png',
+            description: '<p>An extra character with a unique story waiting to be told.</p>',
+            fullHistory: '<p>V-38, a prototype combat android, was originally designed for a long-forgotten war. After being decommissioned, V-38 developed a unique personality through accidental exposure to ancient human archives. Its full history recounts its struggle to reconcile its past as a weapon with its newfound desire for peace and understanding, often leading to humorous and touching encounters with the remnants of humanity.</p>'
+        }
+    };
+
 
     // --- Comic Page Navigation ---
     const comicImage = document.getElementById('comicImage');
     const comicTitleElement = document.getElementById('comicTitle');
     const comicDescriptionElement = document.getElementById('comicDescription');
-    // Getting the new elements by their ID
     const comicAuthorElement = document.getElementById('comicAuthor');
     const comicDateElement = document.getElementById('comicDate');
 
-
-    // Check if the comic image element exists on the page before running comic logic
     if (comicImage) {
-        let currentComicId = 'comic1'; // Default comic ID
-        let currentComic = comicData[currentComicId]; // Default comic data
+        let currentComicId = 'comic1';
+        let currentComic = comicData[currentComicId];
         let currentPage = 0;
 
-        // Get the comic ID from the URL parameter
         const urlParams = new URLSearchParams(window.location.search);
-        const requestedComicId = urlParams.get('comic'); // 'comic' is the parameter name
+        const requestedComicId = urlParams.get('comic');
 
         if (requestedComicId && comicData[requestedComicId]) {
             currentComicId = requestedComicId;
@@ -74,160 +135,122 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn(`Comic ID "${requestedComicId}" not found. Loading default comic.`);
         }
 
-        // UPDATED function to set all comic info
         function updateComicDisplay() {
             if (currentComic && currentComic.pages.length > 0) {
                 comicImage.src = currentComic.pages[currentPage];
-                // Update title, description, author, and date
-                if (comicTitleElement) {
-                    comicTitleElement.textContent = currentComic.title;
-                }
-                if (comicDescriptionElement) {
-                    comicDescriptionElement.textContent = currentComic.description;
-                }
-                if (comicAuthorElement) {
-                    comicAuthorElement.textContent = `Author: ${currentComic.author}`;
-                }
-                if (comicDateElement) {
-                    comicDateElement.textContent = `Date: ${currentComic.date}`;
-                }
-
+                if (comicTitleElement) comicTitleElement.textContent = currentComic.title;
+                if (comicDescriptionElement) comicDescriptionElement.textContent = currentComic.description;
+                if (comicAuthorElement) comicAuthorElement.textContent = `Author: ${currentComic.author}`;
+                if (comicDateElement) comicDateElement.textContent = `Date: ${currentComic.date}`;
             } else {
                 console.warn("No comic data or pages defined for the current comic.");
-                comicImage.src = "https://placehold.co/600x400/CCCCCC/000000?text=Comic+Not+Found"; // Placeholder
-                if (comicTitleElement) {
-                    comicTitleElement.textContent = "Comic Not Found";
-                }
-                if (comicDescriptionElement) {
-                    comicDescriptionElement.textContent = "The requested comic could not be loaded.";
-                }
-                 if (comicAuthorElement) {
-                    comicAuthorElement.textContent = `Author: Not Available`;
-                }
-                if (comicDateElement) {
-                    comicDateElement.textContent = `Date: Not Available`;
-                }
+                comicImage.src = "https://placehold.co/600x400/CCCCCC/000000?text=Comic+Not+Found";
+                if (comicTitleElement) comicTitleElement.textContent = "Comic Not Found";
+                if (comicDescriptionElement) comicDescriptionElement.textContent = "The requested comic could not be loaded.";
+                if (comicAuthorElement) comicAuthorElement.textContent = `Author: Not Available`;
+                if (comicDateElement) comicDateElement.textContent = `Date: Not Available`;
             }
         }
         
-        // Make functions globally accessible for the inline onclick attributes
-        window.nextPage = function () {
-            if (currentComic && currentPage < currentComic.pages.length - 1) {
-                currentPage++;
-                updateComicDisplay();
-            }
-        };
+        window.nextPage = () => { if (currentComic && currentPage < currentComic.pages.length - 1) { currentPage++; updateComicDisplay(); } };
+        window.prevPage = () => { if (currentComic && currentPage > 0) { currentPage--; updateComicDisplay(); } };
+        window.firstPage = () => { if (currentComic) { currentPage = 0; updateComicDisplay(); } };
+        window.lastPage = () => { if (currentComic) { currentPage = currentComic.pages.length - 1; updateComicDisplay(); } };
 
-        window.prevPage = function () {
-            if (currentComic && currentPage > 0) {
-                currentPage--;
-                updateComicDisplay();
-            }
-        };
-
-        window.firstPage = function () {
-            if (currentComic) {
-                currentPage = 0;
-                updateComicDisplay();
-            }
-        };
-
-        window.lastPage = function () {
-            if (currentComic) {
-                currentPage = currentComic.pages.length - 1;
-                updateComicDisplay();
-            }
-        };
-
-        // Initialize the comic display on page load
         updateComicDisplay();
     }
+    
+    // --- Character Profile Page Logic ---
+    const characterProfileContainer = document.getElementById('character-profile-container');
+    if (characterProfileContainer) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const characterId = urlParams.get('character'); // e.g., 'oskar'
+        const character = characterData[characterId];
 
-    // --- Click Sound Effect ---
-    // Define the Audio object once
-    const mouseclick = new Audio("./sounds/click.mp3");
-    mouseclick.volume = 1;
-    mouseclick.preload = "auto";
+        if (character) {
+            // Update the page with the character's data
+            document.title = `7noodle's Studio | ${character.name}`;
+            document.getElementById('characterName').textContent = character.name;
+            const charImage = document.getElementById('characterImage');
+            charImage.src = character.image;
+            charImage.alt = character.name;
+            document.getElementById('characterDescription').innerHTML = character.description;
 
-    // Add event listeners for buttons and links
-    document.querySelectorAll('button, a').forEach(element => {
-        element.addEventListener('mousedown', () => {
-            // Clone the sound to allow multiple rapid plays without cutting off previous ones
-            const clickSound = mouseclick.cloneNode();
-            clickSound.play().catch(e => console.error("Failed to play sound:", e));
-        });
-    });
+            // Update Quick Facts
+            document.getElementById('fullName').textContent = character.fullName || 'Unknown';
+            document.getElementById('gender').textContent = character.gender || 'Unknown';
+            document.getElementById('age').textContent = character.age || '[To be loaded]';
 
-    // Add event listeners for <details> elements to play sound on toggle
-    document.querySelectorAll('details').forEach(detailElement => {
-        detailElement.addEventListener('toggle', () => {
-            // Play sound only when the details element is opened
-            if (detailElement.open) {
-                const clickSound = mouseclick.cloneNode();
-                clickSound.play().catch(e => console.error("Failed to play sound:", e));
+
+            // Display fullHistory
+            const characterFullHistoryElement = document.getElementById('characterFullHistory');
+            if (characterFullHistoryElement) {
+                characterFullHistoryElement.innerHTML = character.fullHistory || '<p>Full history coming soon!</p>';
             }
-        });
-    });
+
+        } else {
+            // Handle case where character ID is not found or invalid
+            document.title = `7noodle's Studio | Character Not Found`;
+            document.getElementById('characterName').textContent = 'Character Not Found';
+            document.getElementById('characterImage').src = 'https://placehold.co/400x600/CCCCCC/000000?text=Not+Found';
+            document.getElementById('characterImage').alt = 'Character Not Found';
+            document.getElementById('characterDescription').innerHTML = '<p>The character you are looking for does not exist. Please check the URL or go back to the characters page.</p>';
+            
+            // Clear or hide quick facts and full history if character not found
+            document.getElementById('fullName').textContent = 'N/A';
+            document.getElementById('gender').textContent = 'N/A';
+            document.getElementById('age').textContent = 'N/A';
+            const characterFullHistoryElement = document.getElementById('characterFullHistory');
+            if (characterFullHistoryElement) {
+                characterFullHistoryElement.innerHTML = ''; // Clear content
+            }
+        }
+    }
 
 
     // --- Light/Dark Mode Switch Functionality ---
     const lightSwitch = document.getElementById('lightSwitch');
-    const themeCheckbox = lightSwitch.querySelector('input[type="checkbox"]');
+    if(lightSwitch) {
+        const themeCheckbox = lightSwitch.querySelector('input[type="checkbox"]');
 
-    function applyTheme() {
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        themeCheckbox.checked = isDarkMode;
-        if (isDarkMode) {
-            document.body.classList.add('dark-mode');
-        } else {
-            document.body.classList.remove('dark-mode');
+        function applyTheme() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            themeCheckbox.checked = isDarkMode;
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
         }
+
+        themeCheckbox.addEventListener('change', () => {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+
+        applyTheme();
     }
 
-    themeCheckbox.addEventListener('change', () => {
-        document.body.classList.toggle('dark-mode');
-        if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'true');
-        } else {
-            localStorage.setItem('darkMode', 'false');
-        }
-    });
-
-    applyTheme();
-
-    // Gallery Modal Functionality
+    // --- Gallery Modal Functionality ---
     const modal = document.getElementById("imageModal");
-    const modalImage = document.getElementById("modalImage");
-    const modalCaption = document.getElementById("caption");
-    const closeButton = document.getElementsByClassName("close-button")[0];
-    const galleryItems = document.querySelectorAll(".gallery-item img");
+    if (modal) {
+        const modalImage = document.getElementById("modalImage");
+        const modalCaption = document.getElementById("caption");
+        const closeButton = document.getElementsByClassName("close-button")[0];
+        const galleryItems = document.querySelectorAll(".gallery-item img");
 
-    galleryItems.forEach(img => {
-        img.addEventListener('click', function() {
-            modal.style.display = "flex";
-            modalImage.src = this.getAttribute('data-full-src') || this.src;
-            modalCaption.innerHTML = this.alt || this.nextElementSibling?.textContent || "";
+        galleryItems.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "flex";
+                modalImage.src = this.getAttribute('data-full-src') || this.src;
+                modalCaption.innerHTML = this.alt || this.nextElementSibling?.textContent || "";
+            });
         });
-    });
 
-    closeButton.addEventListener('click', function() {
-        modal.style.display = "none";
-        modalImage.src = "";
-    });
-
-    window.addEventListener('click', function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            modalImage.src = "";
-        }
-    });
-
-    document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape" && modal.style.display === "flex") {
-            modal.style.display = "none";
-            modalImage.src = "";
-        }
-    });
+        closeButton.addEventListener('click', () => { modal.style.display = "none"; modalImage.src = ""; });
+        window.addEventListener('click', (event) => { if (event.target == modal) { modal.style.display = "none"; modalImage.src = ""; } });
+        document.addEventListener('keydown', (event) => { if (event.key === "Escape" && modal.style.display === "flex") { modal.style.display = "none"; modalImage.src = ""; } });
+    }
 
 }); // End of DOMContentLoaded
 
@@ -236,3 +259,28 @@ function toggleNav() {
   const nav = document.getElementById("myTopnav");
   nav.classList.toggle("show");
 }
+
+const mouseclick = new Audio("./sounds/click.mp3");
+mouseclick.volume = 1;
+mouseclick.preload = "auto";
+
+// Function to play click sound
+function playClickSound() {
+    // Clone the sound to allow multiple rapid plays
+    const clickSound = mouseclick.cloneNode();
+    clickSound.play().catch(e => console.error("Failed to play sound:", e));
+}
+
+// Add event listeners for buttons and links
+document.querySelectorAll('button, a').forEach(element => {
+    element.addEventListener('mousedown', playClickSound);
+});
+
+// Add event listeners for <details> elements to play sound on toggle
+document.querySelectorAll('details').forEach(detailElement => {
+    detailElement.addEventListener('toggle', () => {
+        if (detailElement.open) {
+            playClickSound();
+        }
+    });
+});
