@@ -1,6 +1,6 @@
 :root {
     --blue: #3C56C0; /* blue */
-    --light-red: #FF876D; /* light red */
+    --light-red: #FF4C4C; /* light red */
     --gold: #FFD504; /* gold */
     --light-purple: #d8d1f5; /* fallback background color */
 
@@ -846,7 +846,17 @@ h1 {
     color: var(--gold); /* Ensure main title color is gold */
 }
 
+.full-history-content p{
+    font-size: clamp(0.8em, 1.2vw, 1.2em);
+    text-align: justify;
+    margin-bottom: 10px;
+}
 
+#characterDescription p {
+    font-size: clamp(0.8em, 1.2vw, 1.2em);
+    text-align: justify;
+    margin-bottom: 10px;
+}
 
 li {
     list-style: none;
@@ -899,6 +909,7 @@ details ul {
 details ul li {
     margin-bottom: 0.2em; /* Adjust spacing between list items */
 }
+
 
 /* --- Dark Mode Styles --- */
 
@@ -1079,10 +1090,10 @@ body.dark-mode .nav-toggle{
     font-size: clamp(0.9em, 1.1vw, 1.1em);
 }
 
-.aside-quote {
+.aside-quote p{
     font-style: italic;
     margin-top: 20px;
-    font-size: clamp(0.8em, 1.1vw, 1.1em);
+    font-size: 30px;
 }
 
 /* HR element styles */
