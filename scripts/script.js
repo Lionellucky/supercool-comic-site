@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Comic Data Definition ---
     const comicData = {
         'comic1': {
-            title: 'In Another Lifetime [Oneshot]',
-            description: 'Oskarr and Kaz discussed about their future that\'ll never exist.',
-            author: 'SevenNoodle',
-            date: 'April 16, 2025',
+            title: 'In Another Lifetime',
+            description: 'This is the first comic in the series, exploring themes of time and destiny. It features a unique art style and a compelling narrative.',
+            author: '7noodle',
+            date: 'October 26, 2023',
             pages: [
                 'img/comics/In_Another_Lifetime_Page_1.png',
                 'img/comics/In_Another_Lifetime_Page_2.png',
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'comic2': {
-            title: 'Name The Child! [Oneshot]',
-            description: 'These guys are buns at naming vro..',
-            author: 'SevenNoodle',
-            date: 'May 22, 2024',
+            title: 'Naming',
+            description: 'A short story about the significance and power behind a name.',
+            author: '7noodle',
+            date: 'November 5, 2023',
             pages: [
                 'img/comics/Naming_1.png',
                 'img/comics/Naming_2.png',
@@ -29,18 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'comic3': {
             title: 'The Ways That You Talk To Me...',
-            description: 'That one time when my friend left me alone because he has to move to another city..',
-            author: 'SevenNoodle',
-            date: 'August 31, 2024',
+            description: 'A reflection on communication and understanding.',
+            author: '7noodle',
+            date: 'December 12, 2023',
             pages: [
                 'img/comics/THE_WAYS_THAT_YOU_TALK_TO_ME.png',
             ]
         },
         'comic4': {
-            title: 'Two of the smartest people in their respective universes btw',
-            description: 'IV and VII argues for the 82639th time',
-            author: 'SevenNoodle',
-            date: 'April 10, 2023',
+            title: 'This is canon btw',
+            description: 'A humorous, canonical side-story.',
+            author: '7noodle',
+            date: 'January 1, 2024',
             pages: [
                 'img/comics/This_is_canon_btw.png',
             ]
@@ -266,6 +266,92 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', (event) => { if (event.key === "Escape" && modal.style.display === "flex") { modal.style.display = "none"; modalImage.src = ""; } });
     }
 
+    // --- Audio Click Sound Functionality (Web Audio API for Reliability) ---
+    let audioContext;
+    let clickBuffer;
+    let isAudioInitialized = false;
+
+    // 1. Create a function to set up and play the sound.
+    function playClickSound() {
+        // If the audio isn't ready, don't try to play it.
+        if (!isAudioInitialized || !audioContext || !clickBuffer) {
+            console.log("Audio not ready yet.");
+            return;
+        }
+
+        // Create a sound source node.
+        const source = audioContext.createBufferSource();
+        // Set the buffer (the decoded audio data) for the source.
+        source.buffer = clickBuffer;
+        // Connect the source to the context's destination (the speakers).
+        source.connect(audioContext.destination);
+        // Play the sound immediately.
+        source.start(0);
+    }
+
+    // 2. Create an initialization function that runs only ONCE on the first user interaction.
+    async function initAudio() {
+        // Check if we've already initialized to prevent this from running multiple times.
+        if (isAudioInitialized) {
+            return;
+        }
+        
+        try {
+            console.log("First user interaction. Initializing audio...");
+            // Create the AudioContext. This is the main entry point to the Web Audio API.
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            // Resume the context if it's in a suspended state (required by some browsers).
+            if (audioContext.state === 'suspended') {
+                await audioContext.resume();
+            }
+
+            // Fetch the audio file from the server.
+            const response = await fetch('./sounds/click.mp3');
+            // Get the audio data as an ArrayBuffer.
+            const arrayBuffer = await response.arrayBuffer();
+            // Decode the audio data into a format the browser can play.
+            clickBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+            console.log("Audio successfully initialized and decoded.");
+            isAudioInitialized = true; // Mark audio as ready.
+
+            // Now that audio is unlocked, play the first sound immediately.
+            playClickSound();
+
+        } catch (e) {
+            console.error("Failed to initialize or decode audio:", e);
+            // If something goes wrong, make sure we don't think we're initialized.
+            isAudioInitialized = false;
+        }
+    }
+
+    // 3. Add event listeners to trigger the sound.
+    // This function will be called for every click.
+    function handleInteraction() {
+        // If audio is not initialized, the first click will set it up.
+        if (!isAudioInitialized) {
+            initAudio();
+        } else {
+            // For all subsequent clicks, just play the sound.
+            playClickSound();
+        }
+    }
+
+    // Attach the interaction handler to all buttons and links.
+    document.querySelectorAll('button, a').forEach(element => {
+        element.addEventListener('click', handleInteraction);
+    });
+
+    // Attach the interaction handler to all details toggles.
+    document.querySelectorAll('details').forEach(detailElement => {
+        detailElement.addEventListener('toggle', () => {
+            if (detailElement.open) {
+                handleInteraction();
+            }
+        });
+    });
+
 }); // End of DOMContentLoaded
 
 
@@ -274,27 +360,4 @@ function toggleNav() {
   nav.classList.toggle("show");
 }
 
-const mouseclick = new Audio("./sounds/click.mp3");
-mouseclick.volume = 1;
-mouseclick.preload = "auto";
 
-// Function to play click sound
-function playClickSound() {
-    // Clone the sound to allow multiple rapid plays
-    const clickSound = mouseclick.cloneNode();
-    clickSound.play().catch(e => console.error("Failed to play sound:", e));
-}
-
-// Add event listeners for buttons and links
-document.querySelectorAll('button, a').forEach(element => {
-    element.addEventListener('mousedown', playClickSound);
-});
-
-// Add event listeners for <details> elements to play sound on toggle
-document.querySelectorAll('details').forEach(detailElement => {
-    detailElement.addEventListener('toggle', () => {
-        if (detailElement.open) {
-            playClickSound();
-        }
-    });
-});
