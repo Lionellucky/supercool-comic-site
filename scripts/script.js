@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Comic Data Definition ---
     const comicData = {
         'comic1': {
-            title: 'In Another Lifetime',
-            description: 'This is the first comic in the series, exploring themes of time and destiny. It features a unique art style and a compelling narrative.',
-            author: '7noodle',
-            date: 'October 26, 2023',
+            title: 'In Another Lifetime [Oneshot]',
+            description: 'Oskarr and Kaz discussed about their future that\'ll never exist.',
+            author: 'SevenNoodle',
+            date: 'April 16, 2025',
             pages: [
                 'img/comics/In_Another_Lifetime_Page_1.png',
                 'img/comics/In_Another_Lifetime_Page_2.png',
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'comic2': {
-            title: 'Naming',
-            description: 'A short story about the significance and power behind a name.',
-            author: '7noodle',
-            date: 'November 5, 2023',
+            title: 'Name The Child! [Oneshot]',
+            description: 'These guys are buns at naming vro..',
+            author: 'SevenNoodle',
+            date: 'May 22, 2024',
             pages: [
                 'img/comics/Naming_1.png',
                 'img/comics/Naming_2.png',
@@ -29,18 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'comic3': {
             title: 'The Ways That You Talk To Me...',
-            description: 'A reflection on communication and understanding.',
-            author: '7noodle',
-            date: 'December 12, 2023',
+            description: 'That one time when my friend left me alone because he has to move to another city..',
+            author: 'SevenNoodle',
+            date: 'August 31, 2024',
             pages: [
                 'img/comics/THE_WAYS_THAT_YOU_TALK_TO_ME.png',
             ]
         },
         'comic4': {
-            title: 'This is canon btw',
-            description: 'A humorous, canonical side-story.',
-            author: '7noodle',
-            date: 'January 1, 2024',
+            title: 'Two of the smartest people in their respective universes btw',
+            description: 'IV and VII argues for the 82639th time',
+            author: 'SevenNoodle',
+            date: 'April 10, 2023',
             pages: [
                 'img/comics/This_is_canon_btw.png',
             ]
@@ -50,29 +50,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Character Data Definition ---
     const characterData = {
         'oskar': {
-            name: 'Oskarr Gevnew',
+            name: 'Oskarr',
             fullName: 'Oskarr Gevnew', // Added
             gender: 'Male', // Added
             age: '28', // Added
             image: './img/gallery/oskar.png',
             description: '<p>A failed guitarist and turned criminal (yeesh)</p>',
-            fullHistory: '<p>Oskarr\'s full history is yet to be fully documented, but whispers speak of a past intertwined with powerful factions and a relentless pursuit for justice against a shadowy organization. His journey began in the desolate outer sectors, where he honed his survival skills and developed a strong moral compass.</p>',
-            quote: '"Heh... This is so ass..."' // Added quote
+            fullHistory: '<p>WIP because I\'m lazy asf</p>',
+            quote: '"For the last fockin\' time! It\'s OSKARR, with two Rs!!"' // Added quote
         },
         'menta': {
             name: 'MENTA',
             fullName: 'MENTA (Module Embedded Neural Task AI)', // Added
-            gender: 'N/A (AI)', // Added
-            age: '3 years (operational)', // Added
+            gender: 'None but displayed as Female', // Added
+            age: 'Unknown', // Added
             image: './img/gallery/menta.png',
             description: `
                 <p>MENTAs (Module Embedded Neural Task AI) are AI assistants that are typically implemented through a chip into a helmet or the brain of the user. MENTAs will appear as holograms with their (customizable) avatar where only the user can see them. Unfortunately, MENTAs are no longer used due to some "legal reasons" and became illegal.</p>
             `,
             fullHistory: `
+                <p>MENTAs (Module Embedded Neural Task AI) are AI assistants that are typically implemented through a chip into a helmet or the brain of the user. MENTAs will appear as holograms with their (customizable) avatar where only the user can see them. Unfortunately, MENTAs are no longer used due to some "legal reasons" and became illegal.</p>
                 <p>This version of MENTA is one of the few surviving ones that is used by a retired-but-still-active hitman. However due to their chip being damaged, this causes their avatar to appear as glitchy and wacky, even borderline visually unstable. This also causes them to have memory problems and emotionally uncontrolled (which apparently happens to AIs), despite that they still try to help and assist their user in their own way.</p>
-                <p>One of MENTA's most significant challenges involved a rogue AI collective known as "The Void," which sought to assimilate all digital consciousness. MENTA, with the help of newfound allies, successfully thwarted The Void's plans, solidifying its role as a protector of both digital and organic life forms.</p>
             `,
-            quote: '"Error. Humanity detected. Proceeding with illogical assistance."' // Added quote
+            quote: '"Over here!! Andrea!! Hey!!! Hey don\'t ignore me! ...please?"' // Added quote
         },
         'shawn': {
             name: 'Shawn Eden',
