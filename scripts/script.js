@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Comic Data Definition ---
     const comicData = {
         'comic1': {
-            title: 'In Another Lifetime',
-            description: 'This is the first comic in the series, exploring themes of time and destiny. It features a unique art style and a compelling narrative.',
-            author: '7noodle',
-            date: 'October 26, 2023',
+            title: 'In Another Lifetime [Oneshot]',
+            description: 'Oskarr and Kaz discussed about their future that\'ll never exist.',
+            author: 'SevenNoodle',
+            date: 'April 16, 2025',
             pages: [
                 'img/comics/In_Another_Lifetime_Page_1.png',
                 'img/comics/In_Another_Lifetime_Page_2.png',
@@ -18,10 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'comic2': {
-            title: 'Naming',
-            description: 'A short story about the significance and power behind a name.',
-            author: '7noodle',
-            date: 'November 5, 2023',
+            title: 'Name The Child! [Oneshot]',
+            description: 'These guys are buns at naming vro..',
+            author: 'SevenNoodle',
+            date: 'May 22, 2024',
             pages: [
                 'img/comics/Naming_1.png',
                 'img/comics/Naming_2.png',
@@ -29,18 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'comic3': {
             title: 'The Ways That You Talk To Me...',
-            description: 'A reflection on communication and understanding.',
-            author: '7noodle',
-            date: 'December 12, 2023',
+            description: 'That one time when my friend left me alone because he has to move to another city..',
+            author: 'SevenNoodle',
+            date: 'August 31, 2024',
             pages: [
                 'img/comics/THE_WAYS_THAT_YOU_TALK_TO_ME.png',
             ]
         },
         'comic4': {
-            title: 'This is canon btw',
-            description: 'A humorous, canonical side-story.',
-            author: '7noodle',
-            date: 'January 1, 2024',
+            title: 'Two of the smartest people in their respective universes btw',
+            description: 'IV and VII argues for the 82639th time',
+            author: 'SevenNoodle',
+            date: 'April 10, 2023',
             pages: [
                 'img/comics/This_is_canon_btw.png',
             ]
