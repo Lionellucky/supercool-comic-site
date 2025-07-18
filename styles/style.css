@@ -365,18 +365,20 @@ p {
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    font-size: clamp(1em, 1.1vw, 1.5em);
+    font-size: clamp(0.5em, 1.5vw, 1.5em);
     color: var(--blue); /* Blue text color as per image */
-    margin: 0 0 10px 0; /* Adjust margins */
+    margin: 0 0 0 0; /* Adjust margins */
+    text-align: left;
+    margin-left: 10px;
 }
 
 .project-description p{
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    font-size: clamp(1.8em, 4vw, 5em);
+    font-size: clamp(1px, 100px, 1000px);
     color: var(--blue); /* Blue text color as per image */
-    margin: 0; /* Remove default paragraph margins */
+
     float: left;
     text-align: left;
     
@@ -385,7 +387,8 @@ p {
 .project-description{
     float: left;
     text-align: left;
-    line-height: 1.4;
+    margin: 0;
+        margin-left: 10px;
 }
 
 /* Dark Mode specific styles for projects */
@@ -636,10 +639,6 @@ body.dark-mode .gallery-item {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
-body.dark-mode .gallery-item img {
-    border-bottom-color: var(--dark-text); /* This will be overridden by the specific dark mode rule below */
-}
-
 body.dark-mode .image-caption {
     color: var(--dark-text);
 }
@@ -835,7 +834,7 @@ body.dark-mode #quoteDisplay{
 }
 
 .container p{
-    font-size: clamp(10px, 1dvw, 15em);
+    font-size: clamp(12px, 1.5dvw, 15em);
 }
 
 h1 {
@@ -1229,10 +1228,10 @@ body.dark-mode .footer-divider {
     /* Removed max-width here to let width: 100% and padding define it */
   }
 
-  .container img{
-    width: 90%; /* Make images responsive */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Ensure images don't exceed container width */
+    .welcome-image img {
+        width: 90%; /* Full width for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+        margin: auto;
 
   }
   .comic img {
