@@ -55,8 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
             gender: 'Male', // Added
             age: '28', // Added
             image: './img/gallery/oskar.png',
-            description: '<p>A wanted man with a mysterious past. More information about Oskarr will be revealed soon.</p>',
-            fullHistory: '<p>Oskarr\'s full history is yet to be fully documented, but whispers speak of a past intertwined with powerful factions and a relentless pursuit for justice against a shadowy organization. His journey began in the desolate outer sectors, where he honed his survival skills and developed a strong moral compass.</p>'
+            description: '<p>A failed guitarist and turned criminal (yeesh)</p>',
+            fullHistory: '<p>Oskarr\'s full history is yet to be fully documented, but whispers speak of a past intertwined with powerful factions and a relentless pursuit for justice against a shadowy organization. His journey began in the desolate outer sectors, where he honed his survival skills and developed a strong moral compass.</p>',
+            quote: '"Heh... This is so ass..."' // Added quote
         },
         'menta': {
             name: 'MENTA',
@@ -70,7 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
             fullHistory: `
                 <p>This version of MENTA is one of the few surviving ones that is used by a retired-but-still-active hitman. However due to their chip being damaged, this causes their avatar to appear as glitchy and wacky, even borderline visually unstable. This also causes them to have memory problems and emotionally uncontrolled (which apparently happens to AIs), despite that they still try to help and assist their user in their own way.</p>
                 <p>One of MENTA's most significant challenges involved a rogue AI collective known as "The Void," which sought to assimilate all digital consciousness. MENTA, with the help of newfound allies, successfully thwarted The Void's plans, solidifying its role as a protector of both digital and organic life forms.</p>
-            `
+            `,
+            quote: '"Error. Humanity detected. Proceeding with illogical assistance."' // Added quote
         },
         'shawn': {
             name: 'Shawn Eden',
@@ -78,8 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
             gender: 'Male', // Added
             age: '25', // Added
             image: './img/gallery/shawn.png',
-            description: '<p>A key figure in the "Ascension" series. Details about Shawn are currently classified.</p>',
-            fullHistory: '<p>Shawn Eden\'s full history is a closely guarded secret, known only to a select few. Rumors suggest a past involving advanced technological experiments and a destiny intertwined with the fate of the "Ascension" world. More details will be unveiled as the series progresses.</p>'
+            description: `<p>A father, a priest, a human, he fell from grace from a tragedy that caused him to sin.</p>
+            <p>After death, he became a demon of the <strong style="color: red;">Wrath's</strong> hell.</p>`,
+            fullHistory: `<p>Timeskip to far future where doomsday/judgement day arrived that causes the seven hell\'s gate to open on earth to wreck havoc upon humanity.</p>
+            <p></p>`,
+            quote: 'He doesn\'t have a demon tail unfortunately 💔' // Added quote
         },
         'sin': {
             name: 'Sin',
@@ -87,8 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
             gender: 'Ambiguous', // Added
             age: 'Ancient', // Added
             image: './img/gallery/sin.png',
-            description: '<p>An enigmatic being from the "Ascension" series. Their motives and origins are unknown.</p>',
-            fullHistory: '<p>The origins of Sin are shrouded in mystery. Ancient texts and cryptic prophecies hint at their existence since the dawn of time, influencing pivotal events from the shadows. Their true form is said to be beyond human comprehension, and their purpose remains an enigma, slowly unfolding with each new revelation in the "Ascension" saga.</p>'
+            description: '<p>Weird kid with amnesia lmao.</p>',
+            fullHistory: `<p> Her backstory is unknown (except I actually knew her backstory but I can\'t tell for dramatic effect)</p>
+            <p>She shows no absolute fear of demons or anything that could be a danger of her own well being.. maybe except for angels...</p>
+            <p>Her and Shawn (another character of mine) are travelling around a post-apocalyptic world together filled with demons lurking around!! Yaayy!! :D</p>
+            <p><strike>The red streaks on her head is part of her hair fyi.</strike></p>`,
+            quote: '"HAHAHAHAHAHAHAHAHAHHAHAHAHAHAHAH fuck you."' // Added quote
         },
         'seven': {
             name: 'Seven',
@@ -99,7 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
             description: '<p>A clone of a scientist (which he refers as his dad).</p>',
             fullHistory: `<p>Created from organic cells and ZERO cells (lore stuff lol)</p>
             <p>While he looks somewhat mature, he has the mental capacity of a 7 year old. He can also semi-shapeshift, as he can only change gender, color palette, amount of limbs he has and etc. While he can turn into a couch but due to his limitations, he'll be a very fleshy one (ref to that human skin couch from gravity falls).</p>
-            <p><strike>He's also blind which why he wears that goggles at all times (usually).</strike></p>`
+            <p><strike>He's also blind which why he wears that goggles at all times (usually).</strike></p>`,
+            quote: '"Yeah, I am a fucking woman now."' // Added quote
         },
         'v38': {
             name: 'V-38',
@@ -107,8 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
             gender: 'N/A (Robot)', // Added
             age: '50 years (deactivated for 45)', // Added
             image: './img/gallery/v-38.png',
-            description: '<p>An extra character with a unique story waiting to be told.</p>',
-            fullHistory: '<p>V-38, a prototype combat android, was originally designed for a long-forgotten war. After being decommissioned, V-38 developed a unique personality through accidental exposure to ancient human archives. Its full history recounts its struggle to reconcile its past as a weapon with its newfound desire for peace and understanding, often leading to humorous and touching encounters with the remnants of humanity.</p>'
+            description: '<p>V-38 (pronounced "Veetriate") is a medical bot assigned to take care of humans in the hospital.</p>',
+            fullHistory: '<p>V-38, a prototype combat android, was originally designed for a long-forgotten war. After being decommissioned, V-38 developed a unique personality through accidental exposure to ancient human archives. Its full history recounts its struggle to reconcile its past as a weapon with its newfound desire for peace and understanding, often leading to humorous and touching encounters with the remnants of humanity.</p>',
+            quote: '"GOON!"' // Added quote
         }
     };
 
@@ -181,6 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('gender').textContent = character.gender || 'Unknown';
             document.getElementById('age').textContent = character.age || '[To be loaded]';
 
+            // Update Character Quote
+            document.getElementById('characterQuote').textContent = character.quote || 'No quote available.';
 
             // Display fullHistory
             const characterFullHistoryElement = document.getElementById('characterFullHistory');
@@ -200,6 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('fullName').textContent = 'N/A';
             document.getElementById('gender').textContent = 'N/A';
             document.getElementById('age').textContent = 'N/A';
+            document.getElementById('characterQuote').textContent = 'No quote available.'; // Clear quote
             const characterFullHistoryElement = document.getElementById('characterFullHistory');
             if (characterFullHistoryElement) {
                 characterFullHistoryElement.innerHTML = ''; // Clear content
