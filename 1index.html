@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/TOASTER.ico" type="image/ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+    <link rel="preload" href="./sounds/click.mp3" type="audio/mpeg">
+    <link rel="preload" href="./img/pagenav/darkhoverleft.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/darkhoverleft1.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/darkhoverright.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/darkhoverright1.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/darkleft.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/darkleft1.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/darkright.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/darkright1.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/lighthoverleft.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/lighthoverleft1.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/lighthoverright.webp" type="image/webp">
+    <link rel="preload" href="./img/pagenav/lighthoverright1.webp" type="image/webp">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/lightswitch.css">
+
+    <title>7noodle's Studio</title>
+
+</head>
+
+<body>
+    <header class="header">
+        <img src="./img/7Noodle_Studio_Title.webp" alt="7Noodle Studio Title Logo">
+        <label id="lightSwitch" aria-checked="false" role="switch" class="switch">
+            <input type="checkbox" />
+            <span class="slider">
+                <span class="slider-inner"></span>
+            </span>
+        </label>
+    </header>
+
+    <div class="topnav" id="myTopnav">
+        <a href="javascript:void(0);" data-section="home-section" class="active">Home</a>
+        <a href="javascript:void(0);" data-section="gallery-section">Gallery</a>
+        <a href="javascript:void(0);" data-section="projects-section">Projects</a>
+        <a href="javascript:void(0);" data-section="characters-section">Characters</a>
+        <a href="javascript:void(0);" data-section="contact-section">Contact</a>
+        <a href="javascript:void(0);" data-section="about-section">About</a>
+        <a href="javascript:void(0);" data-section="extras-section">Extras</a>
+    </div>
+
+    <div class="nav-toggle-container">
+        <a href="javascript:void(0);" class="nav-toggle" onclick="toggleNav()">&#9660;</a>
+    </div>
+    <br>
+
+    <!-- Main content container for all sections -->
+    <div id="main-content">
+
+        <!-- Home Section (from index.html) -->
+        <div id="home-section" class="container content-section">
+            <h1>!! WELCOME !!</h1>
+            <div class="welcome-image">
+                <img src="./img/Hi_Toaster.gif" alt="Welcome!!">
+            </div>
+            <div class="introduction">
+                <p>You're probably here because you're either my friend or I provided you a link in my bio, if not then uhhh... Hi anyway! I'm SevenNoodle and what you're looking at is my studio!! It's basically a sandbox for me to show my artworks and projects! You can look around here as much as you like, feel free to explore!</p>
+                <p>Also here are some facts to know more about me!!</p>
+                <ul>
+                    <li>
+                        <details>
+                            <summary>Who are YOU???</summary>
+                            <pre>I go by many names! Such as.. SevenNoodle, Seven, Noodie, Toaster, Keipan, and uhh what else...</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>WHAT is your persona??</summary>
+                            <pre>My persona is a toaster!! (Yes, the kitchen appliance)</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>What do you do???</summary>
+                            <pre>I like to draw! I'm a drawer.. heh..</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Do you have any OCs?</summary>
+                            <pre>Yeah I have TOO many ocs with enough trauma to kill 499 elephants</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>What fandoms are you in?</summary>
+                            <pre>I am in several fandoms! but my brain is too forgetful to remember all of em (I will remember if you mention it though)</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>How often do you draw?</summary>
+                            <pre>I draw once per millennia</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>What do you do besides drawing?</summary>
+                            <pre>I spend most of my time talking to my friends in discord or listening to Laufey and TV girl</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Any other facts I should know about you??</summary>
+                            <pre>
+I failed my math exams consecutively.
+I went through a surgery where they have to sew shut a hole on my forehead.
+I love and hate gacha games, I like to play and glaze it for 5 minutes before deleting it after because it's too boring and repetitive.
+I had a chronic fear of videogame openings when I was a kid.</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Are there any characters you like? Hm??</summary>
+                            <pre>
+Anya Mouthwashing.
+Kim Jun-hee Squid Game.
+Dust Sans!!
+Lady in Azure from coolie run kingdom (NOT smc).
+Ultraman Belial.
+Reinier from AFK journey.
+Calculester from Monster Prom.
+Peter Parker (specifically from the superior spiderman issues).</pre>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary>Now that you've gotten this far..</summary>
+                            <pre>Let me tell you a game that I've been gatekeeping, it's called Morimens!!</pre>
+                        </details>
+                    </li>
+                </ul>
+                <p class="fixed">That's all you need to hear about me!! I hope you enjoy your stay!! .....if not then, uhh gusto ko mamatay (I'm not filipino)</p>
+            </div>
+            <div class="spin">
+                <p>THE END OF THE PAGE!!!</p>
+            </div>
+        </div>
+
+        <!-- About Section (from about.html) -->
+        <div id="about-section" class="container content-section" style="display: none;">
+            <h1>About Us!!</h1>
+            <div class="about-us"><img src="./img/extras/Da_Gangz.webp" alt="about"></div>
+            <p>We are three unemployed teenagers who decided to make a website because we honestly have nothing better to do.</p>
+            <p>This site was made for me! SevenNoodle!! and my enslaved overworked coder that practically did everything on the site <a href="https://github.com/Lionellucky" target="_blank">Lionel Lucky</a>!! We also have an extra guy <a href="https://github.com/jesterofnihil" target="_blank">Albion</a> for moral support and the sybau button.</p>
+            <p>AND TOGETHER WE ARE SEVENNOODLE's STUDIO!!!!!!!!</p>
+            <p>LIO YOU TAKE THE RIGHT!! I'LL TAKE THE LEFT!! AND ALBION!!! ...you'll just be albion. LET'S GO GANG!!!</p>
+        </div>
+
+        <!-- Gallery Section (from gallery.html) -->
+        <div id="gallery-section" class="container content-section" style="display: none;">
+            <h1>Gallery</h1>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="img/gallery/Gay_men.png.jpg" data-full-src="img/gallery/Gay_men.png.jpg" alt="Gay Men.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/job.png" data-full-src="img/gallery/job.png" alt="JOB.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/ena.png" data-full-src="img/gallery/ena.png" alt="ENA.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/Mafioso_and_Eunoia.png" data-full-src="img/gallery/Mafioso_and_Eunoia.png" alt="Mafioso and Eunoia.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/mikuteto.png" data-full-src="img/gallery/mikuteto.png" alt="the red one.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/mouth.png" data-full-src="img/gallery/mouth.png" alt="Mouth.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/My_two_goats.png" data-full-src="img/gallery/My_two_goats.png" alt="My Two Goats.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/New_brush_kinda_buns_idk.png" data-full-src="img/gallery/New_brush_kinda_buns_idk.png" alt="New Brush Kinda Buns IDK.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/Anya_Mouthwashing.png" data-full-src="img/gallery/Anya_Mouthwashing.png" alt="Anya.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/NOOOOOOOOOOOOOOOO.png" data-full-src="img/gallery/NOOOOOOOOOOOOOOOO.png" alt="NOOOOOOOOOOOOO.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/POCONG_MIKU_AAAAAAAAAAHHHH.png.jpg" data-full-src="img/gallery/POCONG_MIKU_AAAAAAAAAAHHHH.png.jpg" alt="Pocong Miku AAAAAAAHHHHH.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/TOGETHER_WE_ARE_DANDADAN.png" data-full-src="img/gallery/TOGETHER_WE_ARE_DANDADAN.png" alt="Together We Are DanDaDan.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/Yuri.png" data-full-src="img/gallery/Yuri.png" alt="Yuri.">
+                </div>
+                <div class="gallery-item">
+                    <img src="img/gallery/yuri2.png" data-full-src="img/gallery/yuri2.png" alt="Yuri.">
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section (from projects.html, now listing projects) -->
+        <div id="projects-section" class="container content-section" style="display: none;">
+            <h1>Projects!</h1>
+            <div class="projects-list">
+                <div class="project-item" data-comic-key="comic1">
+                    <img src="img/thumbnails/thumbnail-1.png" alt="Guy With A Sword Icon" class="project-icon">
+                    <div class="project-info">
+                        <h2 class="project-title">In Another Lifetime</h2>
+                        <p class="project-description">These guys are the worst!</p>
+                    </div>
+                </div>
+                <div class="project-item" data-comic-key="comic2">
+                    <img src="img/thumbnails/thumbnail-2.png" alt="Naming" class="project-icon">
+                    <div class="project-info">
+                        <h2 class="project-title">Name The Child!</h2>
+                        <p class="project-description">Sinners and their chances.</p>
+                    </div>
+                </div>
+                <div class="project-item" data-comic-key="comic3">
+                    <img src="img/thumbnails/thumbnail-3.png" alt="HOLLOW" class="project-icon">
+                    <div class="project-info">
+                        <h2 class="project-title">THE WAYS THAT YOU TALK TO ME</h2>
+                        <p class="project-description">Suguru...</p>
+                    </div>
+                </div>
+                <div class="project-item" data-comic-key="comic4">
+                    <img src="img/thumbnails/thumbnail-4.png" alt="Canon" class="project-icon">
+                    <div class="project-info">
+                        <h2 class="project-title">This Is Canon BTW</h2>
+                        <p class="project-description">heh... my peanits...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comic Viewer Section (dynamic content for projects) -->
+        <div id="comic-viewer-section" class="container content-section" style="display: none;">
+            <a href="javascript:void(0);" class="back-button" data-target-section="projects-section">← Back to Projects</a>
+            <div class="comic-title">
+                <h1 id="comicTitle">Title Of Comic</h1>
+            </div>
+            <div class="comic">
+                <img id="comicImage" src="https://placehold.co/800x600/CCCCCC/000000?text=Loading..." alt="Comic Page">
+            </div>
+            <div>
+                <a class="page-controls first-page" id="first-page-btn" href="javascript:void(0);">First</a>
+                <a class="page-controls prev-page" id="prev-page-btn" href="javascript:void(0);">Prev</a>
+                <a class="page-controls next-page" id="next-page-btn" href="javascript:void(0);">Next</a>
+                <a class="page-controls last-page" id="last-page-btn" href="javascript:void(0);">Last</a>
+            </div>
+            <div class="comic-info">
+                <p id="comicDescription">Comic description goes here.</p>
+                <p id="comicAuthor">Author: Placeholder Author</p>
+                <p id="comicDate">Date: Placeholder Date</p>
+            </div>
+        </div>
+
+        <!-- Characters Section (from characters.html, now with clickable thumbnails) -->
+        <div id="characters-section" class="container content-section" style="display: none;">
+            <h1>Characters !!</h1>
+            <div class="charTable">
+                <div class="character-series">
+                    <h2 class="series-title">The Wantedz</h2>
+                    <div class="character-grid">
+                        <div class="character-thumbnail" data-character-key="oskar">
+                            <img src="./img/gallery/oskarhead.png" alt="Oskarr Gevnew">
+                        </div>
+                        <div class="character-thumbnail" data-character-key="menta">
+                            <img src="./img/gallery/mentahead.png" alt="MENTA">
+                        </div>
+                    </div>
+                </div>
+                <div class="character-series">
+                    <h2 class="series-title">Ascension</h2>
+                    <div class="character-grid">
+                        <div class="character-thumbnail" data-character-key="shawn">
+                            <img src="./img/gallery/shawnhead.png" alt="Shawn Eden">
+                        </div>
+                        <div class="character-thumbnail" data-character-key="sin">
+                            <img src="./img/gallery/sinhead.png" alt="Sin">
+                        </div>
+                    </div>
+                </div>
+                <div class="character-series">
+                    <h2 class="series-title">The Numerals</h2>
+                    <div class="character-grid">
+                        <div class="character-thumbnail" data-character-key="seven">
+                            <img src="./img/gallery/sevenhead.png" alt="Seven">
+                        </div>
+                    </div>
+                </div>
+                <div class="character-series">
+                    <h2 class="series-title">Extras</h2>
+                    <div class="character-grid">
+                        <div class="character-thumbnail" data-character-key="v38">
+                            <img src="./img/gallery/v-38head.png" alt="V-38">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Character Profile Section (dynamic content for characters) -->
+        <div id="character-profile-section" class="container character-profile-container content-section" style="display: none;">
+            <a href="javascript:void(0);" class="back-button" data-target-section="characters-section">← Back to Characters</a>
+            <h1 id="characterName">Loading...</h1>
+            <hr class="character-divider">
+
+            <div class="character-content-wrapper">
+                <div class="character-main-info">
+                    <div class="character-image">
+                        <img id="characterImage" src="https://placehold.co/400x600/CCCCCC/000000?text=Loading..." alt="Character Image">
+                    </div>
+                    <div id="characterDescription">
+                        <p>Please wait while the character information is loaded.</p>
+                    </div>
+                </div>
+
+                <aside class="character-aside">
+                    <h2>Character Quick Facts</h2>
+                    <hr class="aside-divider">
+                    <ul>
+                        <li><strong>Full Name:</strong> <span id="fullName">Unknown</span></li>
+                        <li><strong>Gender:</strong> <span id="gender">Unknown</span></li>
+                        <li><strong>Age:</strong> <span id="age">[To be loaded]</span></li>
+                    </ul>
+                    <hr class="aside-divider">
+                    <p class="aside-quote" id="characterQuote">"Who am I...?"</p>
+                </aside>
+            </div>
+            <div class="character-divider"></div>
+            <div id="characterFullHistory" class="full-history-content">
+                <p>Full history details will appear here.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section (from contact.html) -->
+        <div id="contact-section" class="container content-section" style="display: none;">
+            <h1>Contacts</h1>
+            <a href="mailto:sevennoodle77@gmail.com" class="social-button" target="_blank">
+                <img src="./img/extras/Email_Toaster.webp" alt="Email Icon" class="button-icon">
+                <span class="button-text">Email</span>
+            </a>
+            <a href="https://www.youtube.com/@SevenNoodle/" class="social-button" target="_blank">
+                <img src="./img/extras/Youtube_Toaster.webp" alt="YouTube Icon" class="button-icon">
+                <span class="button-text">Youtube</span>
+            </a>
+            <a href="https://discord.gg/QQVr9GSw" class="social-button" target="_blank">
+                <img src="./img/extras/Discord_Toaster.webp" alt="Discord Icon" class="button-icon">
+                <span class="button-text">Discord</span>
+            </a>
+            <a href="https://x.com/SevenNoodle?t=hAafj-XRXF47FSeqtDzv4Q&s=09" class="social-button" target="_blank">
+                <img src="./img/extras/Twitter_Toaster.webp" alt="Twitter Icon" class="button-icon">
+                <span class="button-text">Twitter</span>
+            </a>
+            <a href="https://www.tiktok.com/@sevennoodle?_t=ZS-8xsqZcSxvLb&_r=1" class="social-button" target="_blank">
+                <img src="./img/extras/Tiktok_Toaster.webp" alt="TikTok Icon" class="button-icon">
+                <span class="button-text">TikTok</span>
+            </a>
+        </div>
+
+        <!-- Extras Section (from extras.html) -->
+        <div id="extras-section" class="container content-section" style="display: none;">
+            <h1>Extras!!</h1>
+            <p>Buncha of random stuff we kept here for fun</p>
+            <div class="did-you-know-section">
+                <h2 class="did-you-know-title">Did you know?</h2>
+                <div id="quoteDisplay">
+                    <!-- Quote will be loaded here by JavaScript -->
+                </div>
+                <p class="small-text">^^Refresh the site to get a new quote!!</p>
+            </div>
+        </div>
+
+        <!-- Secret Lore Section (from supersecretlore.html) -->
+        <div id="lore-section" class="container content-section" style="display: none;">
+            <h1>Written by Albion</h1>
+            <div class="introduction">
+                <p> this is my story of my life I was born at a young age, my father left me when i was just a child with nothing bout a laptop. </p>
+                <p>some say his still looking for the milk, other say he got shot by hunter in the wood of africa being mistaken for a black howler which is weird because i don't live in africa, my mother raised me with my two sisters that bully me</p>
+                <p>that bully me and my only friend for while was a cat name pussy and then john join me(also a cat) and we set off</p>
+                <p>for my journy to the wes- wait wrong thing, he departed to the sea to become an nba supers- </p>
+                <p>wait that not it ether than what does he do DRAWS!!! so unemployed ok, he a loser, i quit.  </p>
+            </div>
+            <div class="spin">
+                <p>...................................</p>
+            </div>
+        </div>
+
+        <!-- 404 Error Section (from 404.html) -->
+        <div id="error-section" class="container content-section" style="display: none;">
+            <h1>404 - Page Not Found</h1>
+            <img src="./img/error.jpg" alt="error" style="border-radius: 5%; width: 500px; height:auto;">
+            <p>Oops! It seems you've stumbled upon a page that doesn't exist.</p>
+        </div>
+
+    </div>
+    <!-- End of main content container -->
+
+    <div class="footer">
+        <p>© 2025 7Noodle's Studio.</p>
+    </div>
+
+    <br>
+    <div class="sybaupunch">
+        <a href="https://youtu.be/l2J5dfOGRNc?si=MKQsUaZUc4-IazVa" target="_blank"><img src="./img/sybaupunch.jpg" alt="Sybau 💔"></a>
+    </div>
+
+    <!-- The Modal/Lightbox Structure for Gallery -->
+    <div id="imageModal" class="modal">
+        <span class="close-button">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption" class="modal-caption"></div>
+    </div>
+
+</body>
+</html>
