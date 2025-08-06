@@ -1,3 +1,4 @@
+/* style.css content */
 :root {
     --blue: #3C56C0; /* blue */
     --light-red: #FF4C4C; /* light red */
@@ -226,12 +227,6 @@ a:visited{
     border-radius: 10px;
 }
 
-/*i didnt want to use this but my GOD what was the problem??*/
-
-.fixed {
-    margin-left: -30px;
-}
-
 p {
     text-align: center;
     font-family: "Playpen Sans", cursive;
@@ -339,6 +334,7 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 15px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
 .project-item:hover {
@@ -372,23 +368,11 @@ p {
     margin-left: 10px;
 }
 
-.project-description p{
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-size: clamp(1px, 100px, 1000px);
-    color: var(--blue); /* Blue text color as per image */
 
-    float: left;
-    text-align: left;
-    
-}
 
-.project-description{
-    float: left;
-    text-align: left;
-    margin: 0;
-        margin-left: 10px;
+/* Ensure dark mode color is applied if you have a dark mode toggle */
+body.dark-mode .project-description {
+    color: var(--dark-surface);
 }
 
 /* Dark Mode specific styles for projects */
@@ -801,12 +785,14 @@ body.dark-mode #quoteDisplay{
         }
 
 .sybaupunch {
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .sybaupunch img {
+
     width: clamp(15px, 90px, 1000px);
     height: auto;
     display: block;
@@ -1009,6 +995,33 @@ body.dark-mode .nav-toggle{
 }
 
 /* New styles for character profile layout with aside */
+.character-profile-container {
+    display: flex;
+    flex-direction: column; /* Default to column for mobile-first */
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: var(--light-red);
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 5%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-top: 100px;
+    box-shadow: 0 8px 100px rgba(0, 0, 0, 0.8);
+    transition: background-color 0.3s ease;
+}
+
+.character-profile-container h1 {
+    text-align: center;
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(1.5em, 4vw, 3em);
+    color: var(--gold);
+}
+
 .character-content-wrapper {
     display: flex;
     flex-direction: column; /* Default to column on small screens */
@@ -1136,6 +1149,195 @@ body.dark-mode .footer-divider {
     background-color: var(--dark-text); /* Dark mode color for HR */
 }
 
+.small-text {
+    cursor: pointer;
+    user-select: none; /* Prevents text from being highlighted on click */
+    transition: transform 0.2s ease-in-out; /* Add this for a smooth animation */
+}
+
+.small-text:hover {
+    transform: translateY(-2px) scale(1.05); /* Add this to lift and slightly enlarge the text */
+}
+
+.comic-title h1 {
+    display: inline-block; /* Add this line */
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(1.5em, 4vw, 3em);
+    color: var(--gold); /* Ensure main title color is gold */
+    text-align: center; /* Center the title */
+}
+
+.project-description {
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-size: 10px; /* Adjust these values as needed */
+    color: var(--blue); /* Or the appropriate color variable */
+    float: left;
+    text-align: left;
+    margin: 0; /* Add this to remove default paragraph margins if needed */
+    margin-left: 10px; /* If you want spacing from the left */
+}
+
+.project-description p {
+    margin: 0; /* Remove default paragraph margins */
+    font-size: 10px; /* Responsive font size */
+    line-height: 1.5; /* Adjust line height for readability */
+}
+
+/* --- Audio Player Styles (Corrected & Updated) --- */
+
+.audio-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--light-red);
+    color: white;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap to the next line */
+    justify-content: space-between; /* Spaces out controls and song info */
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    gap: 15px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+
+
+body.dark-mode .audio-player {
+    background-color: var(--dark-header);
+    box-shadow: 0 -2px 10px rgba(255, 108, 123, 0.5);
+}
+
+.player-controls {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0; /* Prevents controls from shrinking */
+    order: 1; /* Ensures controls are the first item */
+}
+
+.song-info {
+    font-family: "Playpen Sans", cursive;
+    font-size: clamp(0.9em, 1.2vw, 1.1em);
+    color: var(--gold);
+    text-align: right; /* Aligns song title to the right */
+    flex-grow: 1; /* Takes up the remaining space on the top row */
+    min-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    order: 2; /* Ensures song info is the second item */
+}
+
+body.dark-mode .song-info {
+    color: var(--dark-title);
+}
+
+.progress-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* --- KEY CHANGE --- */
+    /* Forces the progress bar to take up the full width and wrap to the bottom */
+    width: 100%;
+    flex-basis: 100%;
+    order: 3; /* Ensures the progress bar is the last item */
+}
+
+#next-btn, #prev-btn, #play-pause-btn {
+    width: 30px; /* Fixed width for buttons */
+    height: 30px; /* Fixed height for buttons */
+    background-size: cover; /* Ensures the button images cover the entire button area */
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    /* Combined transitions for transform (scale) and background-image changes */
+    transition: transform 0.1s ease, background-image 0.2s ease-in-out;
+    /* Make sure text/icon inside is hidden if using background image */
+    text-indent: -9999px; /* Hides any text content */
+    overflow: hidden; /* Ensures hidden text doesn't affect layout */
+    display: flex; /* Use flexbox to center content if needed, though hidden now */
+    justify-content: center;
+    align-items: center;
+}
+
+#next-btn:hover, #prev-btn:hover, #play-pause-btn:hover {
+    scale: 1.2; /* Slightly enlarge the button on hover */
+}
+
+/* ... other existing styles for the audio player remain the same ... */
+.time-display {
+    font-family: "Playpen Sans", cursive;
+    font-size: 0.9em;
+    color: var(--gold); /* Or desired color */
+}
+
+body.dark-mode .time-display {
+    color: var(--dark-title);
+}
+
+.progress-container {
+    background-color: rgba(255, 255, 255, 0.3); /* Lighter background for the bar track */
+    border-radius: 5px;
+    height: 8px; /* Height of the progress bar track */
+    flex-grow: 1; /* Allows it to take up available space */
+    cursor: pointer;
+    overflow: hidden; /* Ensures progress bar stays within bounds */
+    position: relative;
+}
+
+body.dark-mode .progress-container {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.progress-bar {
+    background-color: var(--gold); /* Color of the progress fill */
+    height: 100%;
+    width: 0%; /* Initial width */
+    border-radius: 5px;
+    transition: width 0.1s linear; /* Smooth transition for progress */
+}
+
+body.dark-mode .progress-bar {
+    background-color: var(--dark-text);
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .progress-section {
+        width: 95%;
+    }
+}
+
+.player-button:hover {
+    background-image: url('../img/pagenav/lighthoverright1.webp'); /* Use a hover image for the button */
+    transform: scale(1.05);
+}
+
+body.dark-mode .player-button:hover {
+    background-image: url('../img/pagenav/darkhoverright1.webp'); /* Use a dark mode hover image for the button */
+}
+
+.song-info {
+    font-family: "Playpen Sans", cursive;
+    font-size: clamp(0.9em, 1.2vw, 1.1em);
+    color: var(--gold);
+    text-align: right; /* Align to the right */
+    flex-grow: 1; /* Allow song info to take available space */
+    min-width: 150px; /* Ensure it has a minimum width */
+    overflow: hidden; /* Hide overflow content */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Display ellipsis for overflowed text */
+}
+
+body.dark-mode .song-info {
+    color: var(--dark-title);
+}
+
 
 @media (min-width: 768px) { /* Apply side-by-side layout on larger screens */
     .character-content-wrapper {
@@ -1165,6 +1367,22 @@ body.dark-mode .footer-divider {
 
     .character-aside ul {
         margin: 0; /* Remove auto margin for left alignment */
+    }
+
+    .audio-player {
+        flex-direction: row; /* Keep as row for larger screens */
+        padding: 10px 20px; /* Restore original padding */
+        gap: 15px; /* Restore original gap */
+    }
+
+    #current-song-title {
+        flex-grow: 1; /* Allow song title to take available space */
+        text-align: left; /* Align song title to the left */
+    }
+
+    .progress-section {
+        flex-grow: 1; /* Allow progress section to grow */
+        max-width: none; /* Remove max-width restriction */
     }
 }
 
@@ -1258,13 +1476,9 @@ body.dark-mode .footer-divider {
     font-size: clamp(1.2em, 2vw, 1.5em);
   }
 
-  .cattime {
-    width: clamp(20px, 5vw, 100px);
-    height: auto;
-  }
-
   p {
-    font-size: 20px;
+    font-size: clamp(0.8em, 1.2vw, 1.2em);
+    
   }
 
   .comic-title h2 {
@@ -1350,5 +1564,39 @@ body.dark-mode .footer-divider {
 
     .spin p{
         font-size: xx-small;
+    }
+
+    .player-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+
+    .song-info {
+        font-size: clamp(0.8em, 2.5vw, 1em);
+        overflow: hidden; /* Hide overflow content */
+        white-space: nowrap; /* Prevent text from wrapping */
+        text-overflow: ellipsis; /* Display ellipsis for overflowed text */
+    }
+    .audio-player {
+        flex-direction: column; /* Stack vertically on small screens */
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .player-controls {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .song-info {
+        min-width: unset;
+        width: 100%;
+        text-align: center; /* Center text on small screens */
+    }
+
+    .progress-section {
+        width: 95%; /* Adjust width for small screens */
     }
 }
