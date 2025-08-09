@@ -50,83 +50,91 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentComicPageIndex = 0;
 
     // --- Character Data Definition ---
-    const characterData = {
-        'oskar': {
-            name: 'Oskarr',
-            fullName: 'Oskarr Gevnew',
-            gender: 'Male',
-            age: '28',
-            image: './img/gallery/oskar.png',
-            description: '<p>A failed guitarist and turned criminal (yeesh)</p>',
-            fullHistory: '<p>WIP because I\'m lazy asf</p>',
-            quote: '"For the last fockin\' time! It\'s OSKARR, with two Rs!!"'
+const characterData = {
+        "oskar": {
+            name: `Oskarr`,
+            fullName: `Oskarr Gevnew`,
+            gender: `Male`,
+            age: `28`,
+            image: `./img/gallery/oskar.png`,
+            description: `<p>A failed guitarist and turned criminal (yeesh)</p>`,
+            fullHistory: `<p>Oskarr was the son of a popular underground guitarist before he was shot dead by an unidentified killer.
+            Oskarr then received his father's guitar and to continue his legacy, Oskarr then started to make indie music of his own, unfortunately his works are not known and he was forced to find a job to support his mother.
+            During that, he was in the wrong group of people, having debts, drug usage, and several other crimes.
+            He was kicked out by his mother and became homeless for a while, until he was found and taken by The Wantedz group to do shady commissions.</p>`,
+            quote: `"For the last fockin' time! It's OSKARR, with two Rs!!"`
         },
-        'menta': {
-            name: 'MENTA',
-            fullName: 'MENTA (Module Embedded Neural Task AI)',
-            gender: 'None but displayed as Female',
-            age: 'Unknown',
-            image: './img/gallery/menta.png',
+        "menta": {
+            name: `MENTA`,
+            fullName: `MENTA (Module Embedded Neural Task AI)`,
+            gender: `None but displayed as Female`,
+            age: `Unknown`,
+            image: `./img/gallery/menta.png`,
             description: `
                 <p>MENTAs (Module Embedded Neural Task AI) are AI assistants that are typically implemented through a chip into a helmet or the brain of the user. MENTAs will appear as holograms with their (customizable) avatar where only the user can see them. Unfortunately, MENTAs are no longer used due to some "legal reasons" and became illegal.</p>
             `,
             fullHistory: `
-                <p>MENTAs (Module Embedded Neural Task AI) are AI assistants that are typically implemented through a chip into a helmet or the brain of the user. MENTAs will appear as holograms with their (customizable) avatar where only the user can see them. Unfortunately, MENTAs are no longer used due to some "legal reasons" and became illegal.</p>
                 <p>This version of MENTA is one of the few surviving ones that is used by a retired-but-still-active hitman. However due to their chip being damaged, this causes their avatar to appear as glitchy and wacky, even borderline visually unstable. This also causes them to have memory problems and emotionally uncontrolled (which apparently happens to AIs), despite that they still try to help and assist their user in their own way.</p>
-            `,
-            quote: '"Over here!! Andrea!! Hey!!! Hey don\'t ignore me! ...please?"'
+                `,
+            quote: `"Over here!! Andrea!! Hey!!! Hey don't ignore me! ...please?"`
         },
-        'shawn': {
-            name: 'Shawn Eden',
-            fullName: 'Shawn Eden',
-            gender: 'Male',
-            age: '25',
-            image: './img/gallery/shawn.png',
+        "shawn": {
+            name: `Shawn Eden`,
+            fullName: `Shawn Eden`,
+            gender: `Male`,
+            age: `Unknown`,
+            image: `./img/gallery/shawn.png`,
             description: `<p>A father, a priest, a human, he fell from grace from a tragedy that caused him to sin.</p>
-            <p>After death, he became a demon of the <strong style="color: red;">Wrath's</strong> hell.</p>`,
-            fullHistory: `<p>Timeskip to far future where doomsday/judgement day arrived that causes the seven hell\'s gate to open on earth to wreck havoc upon humanity.</p>
-            <p></p>`,
-            quote: 'He doesn\'t have a demon tail unfortunately 💔'
+            <p>After death, he became a demon of the <strong>Wrath's</strong> hell.</p>`,
+            fullHistory: `<p>Timeskip to the far future where doomsday/judgement day has arrived that causes the seven hell's gate to open on earth to wreck havoc upon humanity.
+            <p>Years later, Shawn, now on earth, tries to seek redemption or in this case.. survive without causing sin.</p>
+            <p>He then later meets a kid which named "Sin". While meeting her, she doesn't seem to show fear towards demons and just follows him around.
+            She reminded him of his daughter back in his human life however, and decided to take care of her as a father figure from the unforgiving world. (which where they go on some wacky adventures together yaaay!!)</p>`,
+            quote: `Hell was... torture.. made only for humans, despite it being beyond their comprehension.`
         },
-        'sin': {
-            name: 'Sin',
-            fullName: 'Unknown',
-            gender: 'Ambiguous',
-            age: 'Ancient',
-            image: './img/gallery/sin.png',
-            description: '<p>Weird kid with amnesia lmao.</p>',
-            fullHistory: `<p> Her backstory is unknown (except I actually knew her backstory but I can\'t tell for dramatic effect)</p>
-            <p>She shows no absolute fear of demons or anything that could be a danger of her own well being.. maybe except for an'gels...</p>
+        "sin": {
+            name: `Sin`,
+            fullName: `Unknown`,
+            gender: `Female`,
+            age: `11 (Currently in main plotline)`,
+            image: `./img/gallery/sin.png`,
+            description: `<p>Weird kid with amnesia lmao.</p>`,
+            fullHistory: `<p> Her backstory is unknown (except I actually knew her backstory but I can't tell for dramatic effect)</p>
+            <p>She shows no absolute fear of demons or anything that could be a danger of her own well being.. maybe except for angels...</p>
             <p>Her and Shawn (another character of mine) are travelling around a post-apocalyptic world together filled with demons lurking around!! Yaayy!! :D</p>
             <p><strike>The red streaks on her head is part of her hair fyi.</strike></p>`,
-            quote: '"HAHAHAHAHAHAHAHAHAHHAHAHAHAHAHAH fuck you."'
+            quote: `"What does hell feels like..? Is it bad?"`
         },
-        'seven': {
-            name: 'Seven',
-            fullName: 'Seven (Clone)',
-            gender: 'Fluid',
-            age: '7 (mental age)',
-            image: './img/gallery/seven.png',
-            description: '<p>A clone of a scientist (which he refers as his dad).</p>',
+        "seven": {
+            name: `Seven`,
+            fullName: `Seven (Clone)`,
+            gender: `Fluid`,
+            age: `7 (mental age)`,
+            image: `./img/gallery/seven.png`,
+            description: `<p>A clone of a scientist (which he refers as his dad).</p>`,
             fullHistory: `<p>Created from organic cells and ZERO cells (lore stuff lol)</p>
             <p>While he looks somewhat mature, he has the mental capacity of a 7 year old. He can also semi-shapeshift, as he can only change gender, color palette, amount of limbs he has and etc. While he can turn into a couch but due to his limitations, he'll be a very fleshy one (ref to that human skin couch from gravity falls).</p>
             <p><strike>He's also blind which why he wears that goggles at all times (usually).</strike></p>`,
-            quote: '"Yeah, I am a fucking woman now."'
+            quote: `"W-what about now?? I'm a woman now! Women are your type right?? RIGHT?"
+`
         },
-        'v38': {
-            name: 'V-38',
-            fullName: 'V-38 (Combat Android)',
-            gender: 'N/A (Robot)',
-            age: '50 years (deactivated for 45)',
-            image: './img/gallery/v-38.png',
-            description: '<p>V-38 (pronounced "Veetriate") is a medical bot assigned to take care of humans in the hospital.</p>',
-            fullHistory: '<p>V-38, a prototype combat android, was originally designed for a long-forgotten war. After being decommissioned, V-38 developed a unique personality through accidental exposure to ancient human archives. Its full history recounts its struggle to reconcile its past as a weapon with its newfound desire for peace and understanding, often leading to humorous and touching encounters with the remnants of humanity.</p>',
-            quote: '"GOON!"'
+        "v38" : {
+            name: `V-38`,
+            fullName: `V-38`,
+            gender: `Clanker`,
+            age: `Unknown`,
+            image: `./img/gallery/v-38.png`,
+            description: `<p>By the time V-38 was automatically activated, the world was already in a robot apocalypse. V-38 didn't go rogue however, because they were already damaged that causes them to disconnect from the internet (which coincidentally the cause of rogue bots is from a virus).
+
+V-38 remodeled themselves with other robotic parts to build themselves weapons, in order to protect their human patients from infected bots.</p>`,
+            quote: `"Goodnight doctor."`
         }
     };
-
     // --- Single Page Navigation Logic ---
     function showSection(sectionId) {
+        // Scroll to the top of the page
+        window.scrollTo(0, 0);
+
         // Hide all content sections
         document.querySelectorAll('.content-section').forEach(section => {
             section.style.display = 'none';
@@ -307,6 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { quoteText: "A Teto venom comic was used as the placeholder comic of this site. (It still exists within the site if you look carefully enough!)", author: "", link: "" },
         { quoteText: "Out of everything here on this site, the coder struggled with the playlist feature the most!", author: "", link: "" },
         { quoteText: "There's a secret gallery in this page with a drawing of femboy Albion!", author: "", link: "" },
+        { quoteText: "SECRETS???? YAAAAAYYY!!!!", author: "Super Secret Gallery", link: "javascript:void(0);" },
         { quoteText: "Sevennoodle Lore?!?!?", author: "Click Me!", link: "javascript:void(0);" } // Modified to use JS for section change
     ];
 
@@ -326,15 +335,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (randomQuote.author) {
                 const authorLink = document.createElement('a');
                 authorLink.href = randomQuote.link;
-                authorLink.textContent = randomQuote.author;
-                authorLink.target = "_blank"; // Open in new tab for external links
-                if (randomQuote.link.startsWith('javascript:')) { // Handle internal section links
+                authorLink.textContent = ` ${randomQuote.author}`; // Add space for separation
+
+                // Specific handlers for internal navigation
+                if (randomQuote.author === "Click Me!") {
                     authorLink.onclick = (e) => {
                         e.preventDefault();
-                        showSection('lore-section'); // Show the lore section
+                        showSection('lore-section');
                     };
-                    authorLink.target = "_self"; // Keep on same page for internal links
+                    authorLink.target = "_self";
+                } else if (randomQuote.author === "Super Secret Gallery") {
+                    authorLink.onclick = (e) => {
+                        e.preventDefault();
+                        showSection('secret-section');
+                    };
+                    authorLink.target = "_self";
+                } else {
+                    // Default for external links
+                    authorLink.target = "_blank";
                 }
+
                 quoteDisplayElement.appendChild(authorLink);
             }
         }
