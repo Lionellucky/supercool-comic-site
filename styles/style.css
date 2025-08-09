@@ -53,10 +53,6 @@ body {
     }
 }
 
-.space {
-    margin-top: 100px;
-}
-
 /* General styling for the lore entries */
 .lore-entry {
     background-color: var(--gold); /* Light background for readability */
@@ -210,7 +206,7 @@ a:visited{
 }
 
 .introduction p{
-    font-size: clamp(0.8em, 2vw, 1em);
+    font-size: clamp(0.8em, 2dvw, 1em);
 }
 
 
@@ -361,9 +357,9 @@ p {
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    font-size: clamp(0.5em, 1.5vw, 1.5em);
-    color: var(--blue); /* Blue text color as per image */
-    margin: 0 0 0 0; /* Adjust margins */
+    font-size: clamp(70%, 2dvw, 2em); /* Larger values */
+    color: var(--blue);
+    margin: 0 0 0 0;
     text-align: left;
     margin-left: 10px;
 }
@@ -818,11 +814,6 @@ body.dark-mode #quoteDisplay{
     box-shadow: 0 8px 100px rgba(0, 0, 0, 0.8);
     transition: background-color 0.3s ease;
 }
-
-.container p{
-    font-size: clamp(12px, 1.5dvw, 15em);
-}
-
 h1 {
     text-align: center;
     font-family: "Playpen Sans", cursive;
@@ -1164,7 +1155,7 @@ body.dark-mode .footer-divider {
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
-    font-size: clamp(1.5em, 4vw, 3em);
+    font-size: clamp(1em, 2dvw, 3em);
     color: var(--gold); /* Ensure main title color is gold */
     text-align: center; /* Center the title */
 }
@@ -1172,7 +1163,7 @@ body.dark-mode .footer-divider {
 .project-description {
     font-family: "Playpen Sans", cursive;
     font-optical-sizing: auto;
-    font-size: 10px; /* Adjust these values as needed */
+    font-size: clamp(0.6em, 1.2vw, 1.1em);
     color: var(--blue); /* Or the appropriate color variable */
     float: left;
     text-align: left;
@@ -1306,6 +1297,11 @@ body.dark-mode .progress-bar {
     background-color: var(--dark-text);
 }
 
+.space {
+    margin-bottom: 500px;
+}
+
+
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
     .progress-section {
@@ -1351,8 +1347,11 @@ body.dark-mode .song-info {
         align-items: flex-start; /* Align image and description to the left */
     }
 
-    .character-image img {
-        margin-left: 0; /* Remove auto margin for left alignment */
+    .character-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
     }
 
     .character-description {
@@ -1362,11 +1361,6 @@ body.dark-mode .song-info {
     .character-aside {
         flex: 1; /* Aside takes less space */
         max-width: 300px; /* Limit aside width */
-        text-align: left; /* Align content to the left within aside */
-    }
-
-    .character-aside ul {
-        margin: 0; /* Remove auto margin for left alignment */
     }
 
     .audio-player {
@@ -1428,7 +1422,7 @@ body.dark-mode .song-info {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  -webkit-touch-callout: default; /* Re-enable for iOS if needed when visible */
+  -webkit-touch-callout: none; /* Re-enable for iOS if needed when visible */
   -webkit-user-select: none;   /* Re-enable for Safari if needed when visible */
   -khtml-user-select: none;    /* Re-enable for Konqueror HTML if needed when visible */
   -moz-user-select: none;      /* Re-enable for Old versions of Firefox if needed when visible */
@@ -1495,12 +1489,17 @@ body.dark-mode .song-info {
   }
 
   .character-image {
+    width: 100%;
     flex-shrink: 0; /* Prevent image from shrinking */
-    margin-right: 20px; /* Add space to the right of the image */
     text-align: center;
     display: flex;
     justify-content: center;
-     align-items: center;
+    align-items: center;
+  }
+  
+  .character-aside {
+      margin: 0 auto;
+      max-width: 400px;
   }
 
   .character-info {
